@@ -9,13 +9,13 @@
 /* Begin PBXBuildFile section */
 		E02A3C9F2A1D3354004D536F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02A3C9E2A1D3354004D536F /* AppDelegate.swift */; };
 		E02A3CA12A1D3354004D536F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02A3CA02A1D3354004D536F /* SceneDelegate.swift */; };
-		E02A3CA32A1D3354004D536F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02A3CA22A1D3354004D536F /* ViewController.swift */; };
 		E02A3CA62A1D3354004D536F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E02A3CA42A1D3354004D536F /* Main.storyboard */; };
 		E02A3CA82A1D3355004D536F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E02A3CA72A1D3355004D536F /* Assets.xcassets */; };
 		E02A3CAB2A1D3355004D536F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E02A3CA92A1D3355004D536F /* LaunchScreen.storyboard */; };
 		E02A3CB62A1D3355004D536F /* GameSphereTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02A3CB52A1D3355004D536F /* GameSphereTests.swift */; };
 		E02A3CC02A1D3355004D536F /* GameSphereUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02A3CBF2A1D3355004D536F /* GameSphereUITests.swift */; };
 		E02A3CC22A1D3355004D536F /* GameSphereUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02A3CC12A1D3355004D536F /* GameSphereUITestsLaunchTests.swift */; };
+		E02A3CD42A1D3AE8004D536F /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02A3CD32A1D3AE8004D536F /* LoginController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +39,6 @@
 		E02A3C9B2A1D3354004D536F /* GameSphere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameSphere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E02A3C9E2A1D3354004D536F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E02A3CA02A1D3354004D536F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E02A3CA22A1D3354004D536F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E02A3CA52A1D3354004D536F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E02A3CA72A1D3355004D536F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E02A3CAA2A1D3355004D536F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +48,7 @@
 		E02A3CBB2A1D3355004D536F /* GameSphereUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GameSphereUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E02A3CBF2A1D3355004D536F /* GameSphereUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSphereUITests.swift; sourceTree = "<group>"; };
 		E02A3CC12A1D3355004D536F /* GameSphereUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSphereUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E02A3CD32A1D3AE8004D536F /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +99,12 @@
 		E02A3C9D2A1D3354004D536F /* GameSphere */ = {
 			isa = PBXGroup;
 			children = (
+				E02A3CD12A1D3A14004D536F /* Controller */,
+				E02A3CD02A1D37E5004D536F /* ViewModel */,
+				E02A3CCF2A1D37DB004D536F /* Model */,
+				E02A3CCE2A1D37D3004D536F /* View */,
 				E02A3C9E2A1D3354004D536F /* AppDelegate.swift */,
 				E02A3CA02A1D3354004D536F /* SceneDelegate.swift */,
-				E02A3CA22A1D3354004D536F /* ViewController.swift */,
 				E02A3CA42A1D3354004D536F /* Main.storyboard */,
 				E02A3CA72A1D3355004D536F /* Assets.xcassets */,
 				E02A3CA92A1D3355004D536F /* LaunchScreen.storyboard */,
@@ -125,6 +128,43 @@
 				E02A3CC12A1D3355004D536F /* GameSphereUITestsLaunchTests.swift */,
 			);
 			path = GameSphereUITests;
+			sourceTree = "<group>";
+		};
+		E02A3CCE2A1D37D3004D536F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		E02A3CCF2A1D37DB004D536F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		E02A3CD02A1D37E5004D536F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ViewModel;
+			sourceTree = "<group>";
+		};
+		E02A3CD12A1D3A14004D536F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E02A3CD22A1D3A20004D536F /* Authenticator */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		E02A3CD22A1D3A20004D536F /* Authenticator */ = {
+			isa = PBXGroup;
+			children = (
+				E02A3CD32A1D3AE8004D536F /* LoginController.swift */,
+			);
+			name = Authenticator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,7 +298,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E02A3CA32A1D3354004D536F /* ViewController.swift in Sources */,
+				E02A3CD42A1D3AE8004D536F /* LoginController.swift in Sources */,
 				E02A3C9F2A1D3354004D536F /* AppDelegate.swift in Sources */,
 				E02A3CA12A1D3354004D536F /* SceneDelegate.swift in Sources */,
 			);
