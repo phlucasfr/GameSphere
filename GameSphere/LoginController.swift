@@ -68,7 +68,8 @@ class LoginController: UIViewController {
         print("Implement login in model")
     }
     @objc private func handleShowSignUp(){
-        print("Implement Sign up in model")
+        let controller = RegistrationController()
+        navigationController?.pushViewController(controller, animated: true)
     }
     
     //MARK - Helpers

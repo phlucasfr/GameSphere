@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,17 +15,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GameSphereLaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="Axu-D0-1Hx">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GameSphereLogo" translatesAutoresizingMaskIntoConstraints="NO" id="k9E-a3-7yH">
+                                <rect key="frame" x="76.666666666666686" y="362" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="mRW-C7-thF"/>
+                                </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Created by Phelipe Lucas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eKi-7k-cw0">
+                                <rect key="frame" x="99.666666666666671" y="797" width="193.66666666666663" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.61960784313725492" green="0.39215686274509803" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Axu-D0-1Hx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="0R2-yL-KrP"/>
-                            <constraint firstItem="Axu-D0-1Hx" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="Ktt-fO-X2l"/>
-                            <constraint firstAttribute="bottom" secondItem="Axu-D0-1Hx" secondAttribute="bottom" id="fcP-3h-niM"/>
-                            <constraint firstItem="Axu-D0-1Hx" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="gVr-G7-NYo"/>
+                            <constraint firstItem="eKi-7k-cw0" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="EbU-VU-MKB"/>
+                            <constraint firstItem="eKi-7k-cw0" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="IPw-rW-ai2"/>
+                            <constraint firstItem="eKi-7k-cw0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="99.666666666666686" id="KQe-cy-h1S"/>
+                            <constraint firstItem="k9E-a3-7yH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="303" id="Lz2-jT-pqb"/>
+                            <constraint firstItem="k9E-a3-7yH" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="cJa-ZO-ivZ"/>
+                            <constraint firstItem="k9E-a3-7yH" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="wb1-6P-cvP"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -36,9 +46,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="GameSphereLaunchScreen" width="1080" height="1920"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="GameSphereLogo" width="500" height="500"/>
     </resources>
 </document>
