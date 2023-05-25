@@ -10,6 +10,11 @@ import UIKit
 class RegistrationController: UIViewController {
     
     //MARK - Properties
+    private let imagePicker: UIImagePickerController = {
+        let picker = UIImagePickerController()
+        return picker
+    }()
+    
     private lazy var plusPhotoButtom:UIButton = {
         let buttom = UIButton(type: .system)
         buttom.setImage(UIImage(named: "plus_photo"), for: .normal)
@@ -83,7 +88,7 @@ class RegistrationController: UIViewController {
     }
     
     @objc private func handleAddPhotoProfile(){
-        print("Photo added")
+        present(imagePicker, animated: true, completion: nil)
     }
     
     @objc private func handleRegister(){
@@ -94,6 +99,9 @@ class RegistrationController: UIViewController {
     
     func configureUI(){
         view.backgroundColor = .gameSpherePurple
+        
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
         
         view.addSubview(plusPhotoButtom)
         plusPhotoButtom.centerX(inView: view, topAnchor: view.safeAreaLayoutGuide.topAnchor)
@@ -125,3 +133,22 @@ class RegistrationController: UIViewController {
     
 }
 
+//MARK - UIImagePickerControllerDelegate
+extension RegistrationController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let profileImage = info[.editedImage] as? UIImage else {return}
+        plusPhotoButtom.layer.cornerRadius = 128 / 2
+        plusPhotoButtom.layer.masksToBounds = true
+        plusPhotoButtom.imageView?.contentMode = .scaleAspectFill
+        plusPhotoButtom.imageView?.clipsToBounds = true
+        plusPhotoButtom.layer.borderColor = UIColor.white.cgColor
+        plusPhotoButtom.layer.borderWidth = 3
+        
+        self.plusPhotoButtom.setImage(profileImage.withRenderingMode(.alwaysOriginal), for: .normal)
+        
+        dismiss(animated: true, completion: nil)
+                                                        
+    }
+    
+}
