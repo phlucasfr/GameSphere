@@ -7,6 +7,7 @@ GameSphere is a social gaming app that connects players, facilitating multiplaye
 ## Features
 - Login screen UI
 - Register screen UI
+- Image profile selection
 <div style="text-align:center;">
   <img src="https://github.com/phlucasfr/GameSphere/blob/main/Screenshots/01.gif" style="width: 75%; height: 75%;">
 </div>
