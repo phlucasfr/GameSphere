@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class RegistrationController: UIViewController {
     
@@ -15,12 +16,12 @@ class RegistrationController: UIViewController {
         return picker
     }()
     
-    private lazy var plusPhotoButtom:UIButton = {
-        let buttom = UIButton(type: .system)
-        buttom.setImage(UIImage(named: "plus_photo"), for: .normal)
-        buttom.tintColor = .white
-        buttom.addTarget(self, action: #selector(handleAddPhotoProfile), for: .touchUpInside)
-        return buttom
+    private lazy var plusPhotoButton:UIButton = {
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(named: "plus_photo"), for: .normal)
+        button.tintColor = .white
+        button.addTarget(self, action: #selector(handleAddPhotoProfile), for: .touchUpInside)
+        return button
     }()
     
     private lazy var emailContainerView: UIView = {
@@ -51,28 +52,28 @@ class RegistrationController: UIViewController {
     }()
     
     private let emailTextField = Utilities().inputTextField(placeHolderText: "Email")
-    private let passwordTextField = Utilities().inputTextField(placeHolderText: "Password")
+    private let passwordTextField = Utilities().inputTextField(placeHolderText: "Password", isSecureField: true)
     private let fullnameTextField = Utilities().inputTextField(placeHolderText: "Full Name")
     private let usernameTextField = Utilities().inputTextField(placeHolderText: "Username")
     
-    private lazy var signUpButtom: UIButton = {
-        let buttom = UIButton(type: .system)
-        buttom.setTitle("Sign Up", for: .normal)
-        buttom.setTitleColor(.gameSpherePurple, for: .normal)
-        buttom.backgroundColor = .white
-        buttom.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        buttom.layer.cornerRadius = 5
-        buttom.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
-        buttom.addTarget(self, action: #selector(handleRegister), for: .touchUpInside)
+    private lazy var signUpButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Sign Up", for: .normal)
+        button.setTitleColor(.gameSpherePurple, for: .normal)
+        button.backgroundColor = .white
+        button.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        button.layer.cornerRadius = 5
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        button.addTarget(self, action: #selector(handleRegister), for: .touchUpInside)
         
-        return buttom
+        return button
     }()
     
-    private lazy var alreadyHaveAccountButtom: UIButton = {
-        let buttom = Utilities().attributedButton("Already have an account?", " Login")
-        buttom.addTarget(self, action: #selector(handleShowLogin), for: .touchUpInside)
+    private lazy var alreadyHaveAccountButton: UIButton = {
+        let button = Utilities().attributedButton("Already have an account?", " Login")
+        button.addTarget(self, action: #selector(handleShowLogin), for: .touchUpInside)
         
-        return buttom
+        return button
     }()
     
     //MARK - LifeCycle
@@ -92,7 +93,17 @@ class RegistrationController: UIViewController {
     }
     
     @objc private func handleRegister(){
-        print("Registred...")
+        guard let email = emailTextField.text else {return}
+        guard let password = passwordTextField.text else {return}
+        
+        Auth.auth().createUser(withEmail: email, password: password){(result,error) in
+            if let error = error {
+                print("Debug: Error is \(error.localizedDescription)")
+            }
+            
+            print("Debug: Successfully registered user.")
+
+        }
     }
     
     //MARK - Helpers
@@ -103,26 +114,26 @@ class RegistrationController: UIViewController {
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
         
-        view.addSubview(plusPhotoButtom)
-        plusPhotoButtom.centerX(inView: view, topAnchor: view.safeAreaLayoutGuide.topAnchor)
-        plusPhotoButtom.setDimensions(width: 128, height: 128)
+        view.addSubview(plusPhotoButton)
+        plusPhotoButton.centerX(inView: view, topAnchor: view.safeAreaLayoutGuide.topAnchor)
+        plusPhotoButton.setDimensions(width: 128, height: 128)
         
         let stack = UIStackView(arrangedSubviews: [
             emailContainerView,
             passwordContainerView,
             fullnameContainerView,
             usernameContainerView,
-            signUpButtom
+            signUpButton
         ])
         stack.axis = .vertical
         stack.spacing = 20
         stack.distribution = .fillEqually
         
         view.addSubview(stack)
-        stack.anchor(top: plusPhotoButtom.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 32, paddingLeft: 32, paddingRight: 32)
+        stack.anchor(top: plusPhotoButton.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 32, paddingLeft: 32, paddingRight: 32)
         
-        view.addSubview(alreadyHaveAccountButtom)
-        alreadyHaveAccountButtom.anchor(
+        view.addSubview(alreadyHaveAccountButton)
+        alreadyHaveAccountButton.anchor(
             left: view.leftAnchor,
             bottom: view.safeAreaLayoutGuide.bottomAnchor,
             right: view.rightAnchor,
@@ -138,14 +149,13 @@ extension RegistrationController: UIImagePickerControllerDelegate, UINavigationC
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let profileImage = info[.editedImage] as? UIImage else {return}
-        plusPhotoButtom.layer.cornerRadius = 128 / 2
-        plusPhotoButtom.layer.masksToBounds = true
-        plusPhotoButtom.imageView?.contentMode = .scaleAspectFill
-        plusPhotoButtom.imageView?.clipsToBounds = true
-        plusPhotoButtom.layer.borderColor = UIColor.white.cgColor
-        plusPhotoButtom.layer.borderWidth = 3
-        
-        self.plusPhotoButtom.setImage(profileImage.withRenderingMode(.alwaysOriginal), for: .normal)
+        plusPhotoButton.layer.cornerRadius = 128 / 2
+        plusPhotoButton.layer.masksToBounds = true
+        plusPhotoButton.imageView?.contentMode = .scaleAspectFill
+        plusPhotoButton.imageView?.clipsToBounds = true
+        plusPhotoButton.layer.borderColor = UIColor.white.cgColor
+        plusPhotoButton.layer.borderWidth = 3        
+        plusPhotoButton.setImage(profileImage.withRenderingMode(.alwaysOriginal), for: .normal)
         
         dismiss(animated: true, completion: nil)
                                                         
