@@ -96,14 +96,8 @@ class RegistrationController: UIViewController {
         guard let email = emailTextField.text else {return}
         guard let password = passwordTextField.text else {return}
         
-        Auth.auth().createUser(withEmail: email, password: password){(result,error) in
-            if let error = error {
-                print("Debug: Error is \(error.localizedDescription)")
-            }
-            
-            print("Debug: Successfully registered user.")
-
-        }
+        let userAuth = UserAuth()
+        userAuth.userRegister(email: email, password: password)
     }
     
     //MARK - Helpers

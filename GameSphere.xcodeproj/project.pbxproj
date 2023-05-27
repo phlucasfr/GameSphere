@@ -24,6 +24,7 @@
 		E051E4892A1D4A030070D725 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E051E4882A1D4A030070D725 /* Extensions.swift */; };
 		E051E48B2A1D51110070D725 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E051E48A2A1D51110070D725 /* Utilities.swift */; };
 		E095B52A2A22911100659C89 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = E095B5292A22911100659C89 /* .gitignore */; };
+		E0A341B72A22A1A600A28F8A /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A341B62A22A1A600A28F8A /* UserAuth.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		E051E4882A1D4A030070D725 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E051E48A2A1D51110070D725 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		E095B5292A22911100659C89 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		E0A341B62A22A1A600A28F8A /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
 		F8F2A7442B15916798721503 /* Pods-GameSphereTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameSphereTests.debug.xcconfig"; path = "Target Support Files/Pods-GameSphereTests/Pods-GameSphereTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -193,6 +195,7 @@
 		E02A3CCF2A1D37DB004D536F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E0A341B62A22A1A600A28F8A /* UserAuth.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -481,6 +484,7 @@
 				E051E48B2A1D51110070D725 /* Utilities.swift in Sources */,
 				E03984FE2A1E61AB00B66470 /* RegistrationController.swift in Sources */,
 				E051E4892A1D4A030070D725 /* Extensions.swift in Sources */,
+				E0A341B72A22A1A600A28F8A /* UserAuth.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
