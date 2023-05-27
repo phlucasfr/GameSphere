@@ -5,9 +5,10 @@ GameSphere is a social gaming app that connects players, facilitating multiplaye
 - This project uses concepts from CI/CD,MVVM,OOP and REST to achieve its goals.
 
 ## Features
-- Login screen UI
-- Register screen UI
-- Image profile selection
+- Login Screen UI
+- Register Screen UI
+- Image Profile Selection
+- User Registration with Firebase API Call
 <div style="text-align:center;">
   <img src="https://github.com/phlucasfr/GameSphere/blob/main/Screenshots/01.gif" style="width: 75%; height: 75%;">
 </div>
