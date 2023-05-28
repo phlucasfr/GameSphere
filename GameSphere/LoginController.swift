@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class LoginController: UIViewController {
     
@@ -36,24 +37,23 @@ class LoginController: UIViewController {
     private let emailTextField = Utilities().inputTextField(placeHolderText: "Email")
     private let passwordTextField = Utilities().inputTextField(placeHolderText: "Password", isSecureField: true)
     
-    private lazy var loginButtom: UIButton = {
-        let buttom = UIButton(type: .system)
-        buttom.setTitle("Log In", for: .normal)
-        buttom.setTitleColor(.gameSpherePurple, for: .normal)
-        buttom.backgroundColor = .white
-        buttom.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        buttom.layer.cornerRadius = 5
-        buttom.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
-        buttom.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
+    private lazy var loginButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Log In", for: .normal)
+        button.setTitleColor(.gameSpherePurple, for: .normal)
+        button.backgroundColor = .white
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        button.layer.cornerRadius = 5
+        button.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
         
-        return buttom
+        return button
     }()
     
-    private lazy var dontHaveAccountButtom: UIButton = {
-        let buttom = Utilities().attributedButton("Don't have an account?", " Sign Up")
-        buttom.addTarget(self, action: #selector(handleShowSignUp), for: .touchUpInside)
+    private lazy var dontHaveAccountButton: UIButton = {
+        let button = Utilities().attributedButton("Don't have an account?", " Sign Up")
+        button.addTarget(self, action: #selector(handleShowSignUp), for: .touchUpInside)
         
-        return buttom
+        return button
     }()
         
     //MARK - LifeCycle
@@ -64,41 +64,46 @@ class LoginController: UIViewController {
     }
     
     //MARK - Selectors
-    @objc private func handleLogin(){
+    @objc private func handleLogin() {
         print("Implement login in model")
     }
-    @objc private func handleShowSignUp(){
+    
+    @objc private func handleShowSignUp() {
         let controller = RegistrationController()
         navigationController?.pushViewController(controller, animated: true)
     }
     
     //MARK - Helpers
-    private func configureUI(){
+    private func configureUI() {
         view.backgroundColor = .gameSpherePurple
         
         view.addSubview(logoImageView)
-        logoImageView.centerX(inView: view, topAnchor: view.safeAreaLayoutGuide.topAnchor)
-        logoImageView.setDimensions(width: 150, height: 150)
+        logoImageView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.width.height.equalTo(150)
+        }
         
         let stack = UIStackView(arrangedSubviews: [
             emailContainerView,
             passwordContainerView,
-            loginButtom
+            loginButton
         ])
         stack.axis = .vertical
         stack.spacing = 20
-        stack.distribution = .fillEqually        
+        stack.distribution = .fillEqually
         view.addSubview(stack)
-        stack.anchor(top: logoImageView.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingLeft: 32, paddingRight: 32)
+        stack.snp.makeConstraints { make in
+            make.top.equalTo(logoImageView.snp.bottom).offset(20)
+            make.left.equalTo(view.snp.left).offset(32)
+            make.right.equalTo(view.snp.right).offset(-32)
+        }
         
-        view.addSubview(dontHaveAccountButtom)
-        dontHaveAccountButtom.anchor(
-            left: view.leftAnchor,
-            bottom: view.safeAreaLayoutGuide.bottomAnchor,
-            right: view.rightAnchor,
-            paddingLeft: 40,
-            paddingRight: 40
-        )
-    }
-    
+        view.addSubview(dontHaveAccountButton)
+        dontHaveAccountButton.snp.makeConstraints { make in
+            make.left.equalTo(view.snp.left).offset(40)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+            make.right.equalTo(view.snp.right).offset(-40)
+        }
+    }    
 }
