@@ -23,6 +23,8 @@
 		E03984FE2A1E61AB00B66470 /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03984FD2A1E61AB00B66470 /* RegistrationController.swift */; };
 		E051E4892A1D4A030070D725 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E051E4882A1D4A030070D725 /* Extensions.swift */; };
 		E051E48B2A1D51110070D725 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E051E48A2A1D51110070D725 /* Utilities.swift */; };
+		E07DFB812A22FCED00C68881 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07DFB802A22FCED00C68881 /* RegistrationViewModel.swift */; };
+		E07DFB842A22FFA200C68881 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E07DFB832A22FFA200C68881 /* SnapKit */; };
 		E095B52A2A22911100659C89 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = E095B5292A22911100659C89 /* .gitignore */; };
 		E0A341B72A22A1A600A28F8A /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A341B62A22A1A600A28F8A /* UserAuth.swift */; };
 /* End PBXBuildFile section */
@@ -70,6 +72,7 @@
 		E03984FD2A1E61AB00B66470 /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
 		E051E4882A1D4A030070D725 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E051E48A2A1D51110070D725 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		E07DFB802A22FCED00C68881 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		E095B5292A22911100659C89 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		E0A341B62A22A1A600A28F8A /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
 		F8F2A7442B15916798721503 /* Pods-GameSphereTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameSphereTests.debug.xcconfig"; path = "Target Support Files/Pods-GameSphereTests/Pods-GameSphereTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -81,6 +84,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F193EC82B7E65A8B20697F0 /* Pods_GameSphere.framework in Frameworks */,
+				E07DFB842A22FFA200C68881 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,7 +156,6 @@
 			isa = PBXGroup;
 			children = (
 				E051E4872A1D49F00070D725 /* Utils */,
-				E02A3CD12A1D3A14004D536F /* Controller */,
 				E02A3CD02A1D37E5004D536F /* ViewModel */,
 				E02A3CCF2A1D37DB004D536F /* Model */,
 				E02A3CCE2A1D37D3004D536F /* View */,
@@ -188,6 +191,7 @@
 		E02A3CCE2A1D37D3004D536F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E02A3CD22A1D3A20004D536F /* Authenticator */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -203,16 +207,9 @@
 		E02A3CD02A1D37E5004D536F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				E07DFB802A22FCED00C68881 /* RegistrationViewModel.swift */,
 			);
 			name = ViewModel;
-			sourceTree = "<group>";
-		};
-		E02A3CD12A1D3A14004D536F /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				E02A3CD22A1D3A20004D536F /* Authenticator */,
-			);
-			name = Controller;
 			sourceTree = "<group>";
 		};
 		E02A3CD22A1D3A20004D536F /* Authenticator */ = {
@@ -252,6 +249,7 @@
 			);
 			name = GameSphere;
 			packageProductDependencies = (
+				E07DFB832A22FFA200C68881 /* SnapKit */,
 			);
 			productName = GameSphere;
 			productReference = E02A3C9B2A1D3354004D536F /* GameSphere.app */;
@@ -329,6 +327,7 @@
 			);
 			mainGroup = E02A3C922A1D3354004D536F;
 			packageReferences = (
+				E07DFB822A22FFA200C68881 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = E02A3C9C2A1D3354004D536F /* Products */;
 			projectDirPath = "";
@@ -483,6 +482,7 @@
 				E02A3CA12A1D3354004D536F /* SceneDelegate.swift in Sources */,
 				E051E48B2A1D51110070D725 /* Utilities.swift in Sources */,
 				E03984FE2A1E61AB00B66470 /* RegistrationController.swift in Sources */,
+				E07DFB812A22FCED00C68881 /* RegistrationViewModel.swift in Sources */,
 				E051E4892A1D4A030070D725 /* Extensions.swift in Sources */,
 				E0A341B72A22A1A600A28F8A /* UserAuth.swift in Sources */,
 			);
@@ -832,6 +832,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E07DFB822A22FFA200C68881 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 5.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E07DFB832A22FFA200C68881 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E07DFB822A22FFA200C68881 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E02A3C932A1D3354004D536F /* Project object */;
 }

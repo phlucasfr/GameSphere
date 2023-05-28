@@ -7,9 +7,9 @@
 
 import UIKit
 import Firebase
+import SnapKit
 
-class RegistrationController: UIViewController {
-    
+class RegistrationController: UIViewController {    
     //MARK - Properties
     private let imagePicker: UIImagePickerController = {
         let picker = UIImagePickerController()
@@ -93,24 +93,28 @@ class RegistrationController: UIViewController {
     }
     
     @objc private func handleRegister(){
+        
+        let registration = RegistrationViewModel()
+        
         guard let email = emailTextField.text else {return}
         guard let password = passwordTextField.text else {return}
         
-        let userAuth = UserAuth()
-        userAuth.userRegister(email: email, password: password)
+        registration.registerUser(email: email, password: password)
     }
     
     //MARK - Helpers
-    
-    func configureUI(){
+    func configureUI() {
         view.backgroundColor = .gameSpherePurple
         
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
         
         view.addSubview(plusPhotoButton)
-        plusPhotoButton.centerX(inView: view, topAnchor: view.safeAreaLayoutGuide.topAnchor)
-        plusPhotoButton.setDimensions(width: 128, height: 128)
+        plusPhotoButton.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.width.height.equalTo(128)
+        }
         
         let stack = UIStackView(arrangedSubviews: [
             emailContainerView,
@@ -124,18 +128,19 @@ class RegistrationController: UIViewController {
         stack.distribution = .fillEqually
         
         view.addSubview(stack)
-        stack.anchor(top: plusPhotoButton.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 32, paddingLeft: 32, paddingRight: 32)
+        stack.snp.makeConstraints { make in
+            make.top.equalTo(plusPhotoButton.snp.bottom).offset(32)
+            make.left.equalTo(view.snp.left).offset(32)
+            make.right.equalTo(view.snp.right).offset(-32)
+        }
         
         view.addSubview(alreadyHaveAccountButton)
-        alreadyHaveAccountButton.anchor(
-            left: view.leftAnchor,
-            bottom: view.safeAreaLayoutGuide.bottomAnchor,
-            right: view.rightAnchor,
-            paddingLeft: 40,
-            paddingRight: 40
-        )
+        alreadyHaveAccountButton.snp.makeConstraints { make in
+            make.left.equalTo(view.snp.left).offset(40)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+            make.right.equalTo(view.snp.right).offset(-40)
+        }
     }
-    
 }
 
 //MARK - UIImagePickerControllerDelegate
@@ -148,11 +153,9 @@ extension RegistrationController: UIImagePickerControllerDelegate, UINavigationC
         plusPhotoButton.imageView?.contentMode = .scaleAspectFill
         plusPhotoButton.imageView?.clipsToBounds = true
         plusPhotoButton.layer.borderColor = UIColor.white.cgColor
-        plusPhotoButton.layer.borderWidth = 3        
+        plusPhotoButton.layer.borderWidth = 3
         plusPhotoButton.setImage(profileImage.withRenderingMode(.alwaysOriginal), for: .normal)
         
         dismiss(animated: true, completion: nil)
-                                                        
     }
-    
 }
