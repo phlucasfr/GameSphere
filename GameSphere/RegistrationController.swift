@@ -26,35 +26,32 @@ class RegistrationController: UIViewController {
     
     private lazy var emailContainerView: UIView = {
         let image = UIImage(imageLiteralResourceName: "ic_mail_outline_white_2x-1")
-        let view = Utilities().inputContainerView(withImage: image, textField: emailTextField)
+        let view = Utilities().inputContainerView(withImage: image, textField: user.emailTextField)
         
         return view
     }()
     
     private lazy var passwordContainerView: UIView = {
         let image = UIImage(imageLiteralResourceName: "ic_lock_outline_white_2x")
-        let view = Utilities().inputContainerView(withImage: image, textField: passwordTextField)
+        let view = Utilities().inputContainerView(withImage: image, textField: user.passwordTextField)
         
         return view
     }()
     private lazy var fullnameContainerView: UIView = {
         let image = UIImage(imageLiteralResourceName: "ic_person_outline_white_2x")
-        let view = Utilities().inputContainerView(withImage: image, textField: fullnameTextField)
+        let view = Utilities().inputContainerView(withImage: image, textField: user.fullnameTextField)
         
         return view
     }()
     
     private lazy var usernameContainerView: UIView = {
         let image = UIImage(imageLiteralResourceName: "ic_person_outline_white_2x")
-        let view = Utilities().inputContainerView(withImage: image, textField: usernameTextField)
+        let view = Utilities().inputContainerView(withImage: image, textField: user.usernameTextField)
         
         return view
     }()
     
-    private let emailTextField = Utilities().inputTextField(placeHolderText: "Email")
-    private let passwordTextField = Utilities().inputTextField(placeHolderText: "Password", isSecureField: true)
-    private let fullnameTextField = Utilities().inputTextField(placeHolderText: "Full Name")
-    private let usernameTextField = Utilities().inputTextField(placeHolderText: "Username")
+   private let user = RegistrationVM()
     
     private lazy var signUpButton: UIButton = {
         let button = UIButton(type: .system)
@@ -92,14 +89,11 @@ class RegistrationController: UIViewController {
         present(imagePicker, animated: true, completion: nil)
     }
     
-    @objc private func handleRegister(){
+    @objc private func handleRegister(){                        
+        guard let email = user.emailTextField.text else {return}
+        guard let password = user.passwordTextField.text else {return}
         
-        let registration = RegistrationViewModel()
-        
-        guard let email = emailTextField.text else {return}
-        guard let password = passwordTextField.text else {return}
-        
-        registration.registerUser(email: email, password: password)
+        user.registerUser(input: User(email: email, password: password))
     }
     
     //MARK - Helpers
