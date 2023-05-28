@@ -33,9 +33,7 @@ class LoginController: UIViewController {
         
         return view
     }()
-    
-    
-    
+        
     private lazy var loginButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Log In", for: .normal)
@@ -68,8 +66,8 @@ class LoginController: UIViewController {
     }
     
     @objc private func handleShowSignUp() {
-        let controller = RegistrationController()
-        navigationController?.pushViewController(controller, animated: true)
+        let registrationView = LoginVM()
+        registrationView.goToRegistration(actualNavController: navigationController!)
     }
     
     //MARK - Helpers
