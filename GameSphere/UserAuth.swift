@@ -8,8 +8,8 @@
 import UIKit
 import Firebase
 
-struct UserAuth {
-     
+class UserAuth {
+    
     func userRegister(email:String, password:String){
         
         Auth.auth().createUser(withEmail: email, password: password){(result,error) in
@@ -29,4 +29,5 @@ struct UserAuth {
             }
         }
     }
+    
 }

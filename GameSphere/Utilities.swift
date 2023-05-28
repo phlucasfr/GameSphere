@@ -6,49 +6,45 @@
 //
 
 import UIKit
+import SnapKit
 
 class Utilities {
+    
     func inputContainerView(withImage image: UIImage, textField: UITextField) -> UIView {
-        
         let view = UIView()
+        
         let iv = UIImageView(image: image)
         view.addSubview(iv)
-        view.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        
-        
-        iv.anchor(
-            left: view.leftAnchor,
-            bottom: view.bottomAnchor,
-            paddingLeft: 8,
-            paddingBottom: 8
-        )
-        iv.setDimensions(
-            width: 24,
-            height: 24
-        )
+        iv.snp.makeConstraints { make in
+            make.left.equalTo(view.snp.left).offset(8)
+            make.bottom.equalTo(view.snp.bottom).offset(-8)
+            make.width.height.equalTo(24)
+        }
         
         view.addSubview(textField)
-        textField.anchor(
-            left: iv.rightAnchor,
-            bottom: view.bottomAnchor,
-            right: view.rightAnchor,
-            paddingLeft: 8,
-            paddingBottom: 8
-        )
+        textField.snp.makeConstraints { make in
+            make.left.equalTo(iv.snp.right).offset(8)
+            make.bottom.equalTo(view.snp.bottom).offset(-8)
+            make.right.equalTo(view.snp.right).offset(-8)
+        }
         
         let dividerView = UIView()
         dividerView.backgroundColor = .white
         view.addSubview(dividerView)
-        dividerView.anchor(
-            left: view.leftAnchor,
-            bottom: view.bottomAnchor,
-            right: view.rightAnchor,
-            paddingLeft: 8,
-            height: 0.75
-        )
+        dividerView.snp.makeConstraints { make in
+            make.left.equalTo(view.snp.left).offset(8)
+            make.bottom.equalTo(view.snp.bottom)
+            make.right.equalTo(view.snp.right).offset(-8)
+            make.height.equalTo(0.75)
+        }
+        
+        view.snp.makeConstraints { make in
+            make.height.equalTo(50)
+        }
         
         return view
     }
+
     
     func inputTextField(placeHolderText: String, isSecureField: Bool? = false) -> UITextField {
         let textField = UITextField()
