@@ -22,20 +22,19 @@ class LoginController: UIViewController {
     
     private lazy var emailContainerView: UIView = {
         let image = UIImage(imageLiteralResourceName: "ic_mail_outline_white_2x-1")
-        let view = Utilities().inputContainerView(withImage: image, textField: emailTextField)
+        let view = Utilities().inputContainerView(withImage: image, textField: LoginVM().passwordTextField)
         
         return view
     }()
     
     private lazy var passwordContainerView: UIView = {
         let image = UIImage(imageLiteralResourceName: "ic_lock_outline_white_2x")
-        let view = Utilities().inputContainerView(withImage: image, textField: passwordTextField)
+        let view = Utilities().inputContainerView(withImage: image, textField: LoginVM().passwordTextField)
         
         return view
     }()
     
-    private let emailTextField = Utilities().inputTextField(placeHolderText: "Email")
-    private let passwordTextField = Utilities().inputTextField(placeHolderText: "Password", isSecureField: true)
+    
     
     private lazy var loginButton: UIButton = {
         let button = UIButton(type: .system)
