@@ -8,8 +8,13 @@ GameSphere is a social gaming app that connects players, facilitating multiplaye
 - Login Screen UI
 - Register Screen UI
 - Image Profile Selection
-- User Registration with Firebase API Call
+- User Registration
 - Mail Verification
+
+## Stacks
+- Snapkit
+- Firebase
+
 <div style="text-align:center;">
   <img src="https://github.com/phlucasfr/GameSphere/blob/main/Screenshots/01.gif" style="width: 75%; height: 75%;">
 </div>
