@@ -5,11 +5,22 @@
 //  Created by Phelipe Lucas on 27/05/23.
 //
 
-import Foundation
+import UIKit
+
+protocol UserRegistration {
+    var emailTextField: UITextField { get set }
+    var passwordTextField: UITextField { get set }
+    var fullnameTextField: UITextField { get set }
+    var usernameTextField: UITextField { get set }
+    var profileImageReg: UIImage { get set }
+}
 
 struct User {
-      
-    let email:String
-    let password:String
-        
+    var userId: String
+    let email: String
+    let password: String
+    let fullName: String
+    let userName: String
+    let profileImage: UIImage
 }
+
