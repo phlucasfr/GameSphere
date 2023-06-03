@@ -44,7 +44,6 @@ class Utilities {
         
         return view
     }
-
     
     func inputTextField(placeHolderText: String, isSecureField: Bool? = false) -> UITextField {
         let textField = UITextField()
