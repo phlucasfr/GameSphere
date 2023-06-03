@@ -16,6 +16,8 @@ class RegistrationController: UIViewController {
         return picker
     }()
     
+    private var profileImage: UIImage?
+    
     private lazy var plusPhotoButton:UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(named: "plus_photo"), for: .normal)
@@ -89,11 +91,24 @@ class RegistrationController: UIViewController {
         present(imagePicker, animated: true, completion: nil)
     }
     
-    @objc private func handleRegister(){                        
-        guard let email = user.emailTextField.text else {return}
-        guard let password = user.passwordTextField.text else {return}
+    @objc private func handleRegister() {
         
-        user.registerUser(input: User(email: email, password: password))
+        let email = user.emailTextField.text ?? ""
+        let password = user.passwordTextField.text ?? ""
+        let fullName = user.fullnameTextField.text ?? ""
+        let userName = user.usernameTextField.text ?? ""
+        let profileImage = self.profileImage
+
+        if profileImage == nil {
+            print("Debug: Please select a profile image")
+            return
+        }
+              
+        if email.isEmpty || password.isEmpty || fullName.isEmpty || userName.isEmpty {
+            return
+        }
+                        
+        user.registerUser()
     }
     
     //MARK - Helpers
@@ -142,6 +157,8 @@ extension RegistrationController: UIImagePickerControllerDelegate, UINavigationC
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let profileImage = info[.editedImage] as? UIImage else {return}
+        self.profileImage = profileImage
+        
         plusPhotoButton.layer.cornerRadius = 128 / 2
         plusPhotoButton.layer.masksToBounds = true
         plusPhotoButton.imageView?.contentMode = .scaleAspectFill
