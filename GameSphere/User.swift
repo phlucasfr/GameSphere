@@ -13,6 +13,10 @@ protocol UserRegistration {
     var fullnameTextField: UITextField { get set }
     var usernameTextField: UITextField { get set }
     var profileImageReg: UIImage { get set }
+    
+    func registerUser()
+    func insertUser()
+    func sendVerUser()
 }
 
 struct User {
