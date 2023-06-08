@@ -15,6 +15,7 @@ protocol UserRegistration {
     var profileImageReg: UIImage { get set }
     
     func registerUser()
+    func profileImageToUrl()
     func insertUser()
     func sendVerUser()
 }
@@ -25,6 +26,6 @@ struct User {
     let password: String
     let fullName: String
     let userName: String
-    let profileImage: UIImage
+    var profileImageUrl: String
 }
 

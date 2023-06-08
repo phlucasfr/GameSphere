@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
 
 class RegistrationVM: UserRegistration {
     
@@ -22,13 +23,13 @@ class RegistrationVM: UserRegistration {
         password: passwordTextField.text!,
         fullName: fullnameTextField.text!,
         userName: usernameTextField.text!,
-        profileImage: profileImageReg
+        profileImageUrl: ""
     )
     
     private var result: AuthDataResult?
     
-    func registerUser(){
-        
+    func registerUser() {
+                   
         Auth.auth().createUser(withEmail: userReg.email, password: userReg.password) { (result, error) in
             if let error = error {
                 print("Debug: Error is \(error.localizedDescription)")
@@ -36,9 +37,24 @@ class RegistrationVM: UserRegistration {
             }
             self.result = result
             
-            self.insertUser()
-            self.sendVerUser()
+            self.profileImageToUrl()
             print("Debug: Successfully registered user.")
+        }
+    }
+    
+    internal func profileImageToUrl() {
+        
+        guard let imageData = self.profileImageReg.jpegData(compressionQuality: 0.3) else {return}
+        let fileName = NSUUID().uuidString
+        
+        let storageRef = STORAGE_PROFILE_IMAGES.child(fileName)
+        storageRef.putData(imageData, metadata: nil) { (meta, error) in
+            storageRef.downloadURL { (url, error) in
+                guard let profileImageURL = url?.absoluteString else { return }
+            
+                self.userReg.profileImageUrl = profileImageURL
+                self.insertUser()
+            }
         }
     }
     
@@ -46,18 +62,19 @@ class RegistrationVM: UserRegistration {
         
         guard let userId = self.result?.user.uid else { return }
         userReg.userId = userId
-        
+         
         // updateChildValues needs to be a Dictionary
         let userDictionary: [String: Any] = [
             "email": userReg.email,
             "password": userReg.password,
             "fullName": userReg.fullName,
-            "userName": userReg.userName
+            "userName": userReg.userName,
+            "profileImageUrl": userReg.profileImageUrl
         ]
         
-        let ref = Database.database().reference().child("users").child(userReg.userId)
-        ref.updateChildValues(userDictionary) { erro, ref in
+        REF_USERS.child(userReg.userId).updateChildValues(userDictionary) { erro, ref in
             print("Success update user")
+            self.sendVerUser()
         }
     }
     
