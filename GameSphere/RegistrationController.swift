@@ -103,6 +103,8 @@ class RegistrationController: UIViewController {
             print("Debug: Please select a profile image")
             return
         }
+
+        user.profileImageReg = profileImage!
               
         if email.isEmpty || password.isEmpty || fullName.isEmpty || userName.isEmpty {
             return
