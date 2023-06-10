@@ -11,6 +11,8 @@ import SnapKit
 class LoginController: UIViewController {
     
     //MARK - Properties
+    private let loginVM = LoginVM()
+    
     private let logoImageView: UIImageView = {
         let view = UIImageView()
         view.contentMode = .scaleAspectFit
@@ -22,14 +24,14 @@ class LoginController: UIViewController {
     
     private lazy var emailContainerView: UIView = {
         let image = UIImage(imageLiteralResourceName: "ic_mail_outline_white_2x-1")
-        let view = Utilities().inputContainerView(withImage: image, textField: LoginVM().passwordTextField)
+        let view = Utilities().inputContainerView(withImage: image, textField: loginVM.emailTextField)
         
         return view
     }()
     
     private lazy var passwordContainerView: UIView = {
         let image = UIImage(imageLiteralResourceName: "ic_lock_outline_white_2x")
-        let view = Utilities().inputContainerView(withImage: image, textField: LoginVM().passwordTextField)
+        let view = Utilities().inputContainerView(withImage: image, textField: loginVM.passwordTextField)
         
         return view
     }()
@@ -38,7 +40,7 @@ class LoginController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("Log In", for: .normal)
         button.setTitleColor(.gameSpherePurple, for: .normal)
-        button.backgroundColor = .white
+        button.backgroundColor = .gameSphereWhite
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         button.layer.cornerRadius = 5
         button.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
@@ -62,11 +64,26 @@ class LoginController: UIViewController {
     
     //MARK - Selectors
     @objc private func handleLogin() {
-        print("Implement login in model")
+               
+        loginVM.logUserIn(completion: { (result, error) in
+            if let error = error {
+                print("DEBUG: Error loggin in \(error.localizedDescription)")
+                return
+            }
+            
+            guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                  let window = windowScene.windows.first(where: { $0.isKeyWindow }),
+                  let tab = window.rootViewController as? MainTabController else {
+                return
+            }
+
+            tab.authenticateUserAndConfigureUI()            
+            self.dismiss(animated: true, completion: nil)
+        })
     }
     
     @objc private func handleShowSignUp() {
-        let registrationView = LoginVM()
+        let registrationView = loginVM
         registrationView.goToRegistration(actualNavController: navigationController!)
     }
     
