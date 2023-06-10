@@ -7,25 +7,24 @@
 
 import UIKit
 
-protocol UserRegistration {
-    var emailTextField: UITextField { get set }
-    var passwordTextField: UITextField { get set }
-    var fullnameTextField: UITextField { get set }
-    var usernameTextField: UITextField { get set }
-    var profileImageReg: UIImage { get set }
-    
-    func registerUser()
-    func profileImageToUrl()
-    func insertUser()
-    func sendVerUser()
-}
-
 struct User {
     var userId: String
-    let email: String
-    let password: String
-    let fullName: String
-    let userName: String
+    var email: String
+    var password: String
+    var fullName: String
+    var userName: String
     var profileImageUrl: String
 }
+
+protocol UserLogin {
+    var email: String { get set }
+    var password: String { get set }
+}
+
+protocol UserRegistration {    
+    var userReg: User { get set }
+}
+
+
+
 

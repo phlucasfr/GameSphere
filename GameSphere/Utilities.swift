@@ -29,7 +29,7 @@ class Utilities {
         }
         
         let dividerView = UIView()
-        dividerView.backgroundColor = .white
+        dividerView.backgroundColor = .gameSphereWhite
         view.addSubview(dividerView)
         dividerView.snp.makeConstraints { make in
             make.left.equalTo(view.snp.left).offset(8)
@@ -47,12 +47,12 @@ class Utilities {
     
     func inputTextField(placeHolderText: String, isSecureField: Bool? = false) -> UITextField {
         let textField = UITextField()
-        textField.textColor = .white
+        textField.textColor = .gameSphereWhite
         textField.font = .systemFont(ofSize: 16)
         textField.attributedPlaceholder = NSAttributedString(
             string: placeHolderText,
             attributes: [
-                NSAttributedString.Key.foregroundColor: UIColor.white
+                NSAttributedString.Key.foregroundColor: UIColor.gameSphereWhite
             ]
         )
         
@@ -70,7 +70,7 @@ class Utilities {
             string: firstPart,
             attributes: [
                 NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16),
-                NSAttributedString.Key.foregroundColor: UIColor.white
+                NSAttributedString.Key.foregroundColor: UIColor.gameSphereWhite
             ]
         )
         attributtedTitle.append(
@@ -78,7 +78,7 @@ class Utilities {
                 string: secondPart,
                 attributes: [
                     NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16),
-                    NSAttributedString.Key.foregroundColor: UIColor.white
+                    NSAttributedString.Key.foregroundColor: UIColor.gameSphereWhite
                 ]
             )
         )

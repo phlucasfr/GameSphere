@@ -97,4 +97,8 @@ extension UIColor {
     }
     
     static let gameSpherePurple = UIColor.rgb(red: 158, green: 100, blue: 217)
+    static let gameSphereWhite = UIColor.rgb(red: 234, green: 234, blue: 234)
+    static let gameSphereBlack = UIColor.rgb(red: 42, green: 43, blue: 42)
+    static let gameSphereBrown = UIColor.rgb(red: 147, green: 123, blue: 99)
+    static let gameSphereGreen = UIColor.rgb(red: 109, green: 159, blue: 113)
 }

@@ -9,19 +9,21 @@ import UIKit
 import Firebase
 import SnapKit
 
-class RegistrationController: UIViewController {    
+class RegistrationController: UIViewController {
+    
     //MARK - Properties
     private let imagePicker: UIImagePickerController = {
         let picker = UIImagePickerController()
         return picker
     }()
     
+    private let user = RegistrationVM()
     private var profileImage: UIImage?
     
     private lazy var plusPhotoButton:UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(named: "plus_photo"), for: .normal)
-        button.tintColor = .white
+        button.tintColor = .gameSphereWhite
         button.addTarget(self, action: #selector(handleAddPhotoProfile), for: .touchUpInside)
         return button
     }()
@@ -53,13 +55,11 @@ class RegistrationController: UIViewController {
         return view
     }()
     
-   private let user = RegistrationVM()
-    
     private lazy var signUpButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Sign Up", for: .normal)
         button.setTitleColor(.gameSpherePurple, for: .normal)
-        button.backgroundColor = .white
+        button.backgroundColor = .gameSphereWhite
         button.heightAnchor.constraint(equalToConstant: 50).isActive = true
         button.layer.cornerRadius = 5
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
@@ -93,24 +93,26 @@ class RegistrationController: UIViewController {
     
     @objc private func handleRegister() {
         
-        let email = user.emailTextField.text ?? ""
-        let password = user.passwordTextField.text ?? ""
-        let fullName = user.fullnameTextField.text ?? ""
-        let userName = user.usernameTextField.text ?? ""
         let profileImage = self.profileImage
-
         if profileImage == nil {
             print("Debug: Please select a profile image")
             return
         }
-
+        
         user.profileImageReg = profileImage!
-              
-        if email.isEmpty || password.isEmpty || fullName.isEmpty || userName.isEmpty {
-            return
-        }
-                        
-        user.registerUser()
+        let isCreated = user.registerUser()
+        
+        if isCreated {
+            guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                  let window = windowScene.windows.first(where: { $0.isKeyWindow }),
+                  let tab = window.rootViewController as? MainTabController else {
+                return
+            }
+            
+            tab.logUserOut()
+            tab.authenticateUserAndConfigureUI()
+            self.dismiss(animated: true, completion: nil)
+        }                
     }
     
     //MARK - Helpers
@@ -165,10 +167,11 @@ extension RegistrationController: UIImagePickerControllerDelegate, UINavigationC
         plusPhotoButton.layer.masksToBounds = true
         plusPhotoButton.imageView?.contentMode = .scaleAspectFill
         plusPhotoButton.imageView?.clipsToBounds = true
-        plusPhotoButton.layer.borderColor = UIColor.white.cgColor
+        plusPhotoButton.layer.borderColor = UIColor.gameSphereWhite.cgColor
         plusPhotoButton.layer.borderWidth = 3
         plusPhotoButton.setImage(profileImage.withRenderingMode(.alwaysOriginal), for: .normal)
         
         dismiss(animated: true, completion: nil)
     }
+    
 }
