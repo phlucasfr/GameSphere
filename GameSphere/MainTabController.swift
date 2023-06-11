@@ -54,7 +54,7 @@ class MainTabController: UITabBarController {
         super.viewDidLoad()
         view.backgroundColor = .gameSpherePurple
         
-        //logUserOut()
+        logUserOut()
         authenticateUserAndConfigureUI()
     }
     

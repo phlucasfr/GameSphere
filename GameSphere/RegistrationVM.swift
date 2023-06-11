@@ -23,42 +23,90 @@ class RegistrationVM: UserRegistration {
         password: "",
         fullName: "",
         userName: "",
-        profileImageUrl: ""
+        profileImageUrl: "",
+        emailVerified: false
     )
     
-    private var result: AuthDataResult?
-    
-    private func verifyAndSetProps() {
-        guard let email = emailTextField.text else { return }
-        guard let password = passwordTextField.text else { return }
-        guard let fullName = fullnameTextField.text else { return }
-        guard let userName = usernameTextField.text else { return }
-        
+    var result: AuthDataResult?
+      
+    private func verifyAndSetProps() throws {
+        guard let email = emailTextField.text, !email.isEmpty else {
+            throw RegistrationError.missingEmail
+        }
+        guard let password = passwordTextField.text, !password.isEmpty else {
+            throw RegistrationError.missingPassword
+        }
+        guard let fullName = fullnameTextField.text, !fullName.isEmpty else {
+            throw RegistrationError.missingFullName
+        }
+        guard let userName = usernameTextField.text, !userName.isEmpty else {
+            throw RegistrationError.missingUsername
+        }
+
         userReg.email = email
         userReg.password = password
         userReg.fullName = fullName
         userReg.userName = userName
     }
     
-    func registerUser() -> Bool {
+    func checkUsernameAvailability(username: String, completion: @escaping (Bool, Error?) -> Void) {
+        let usernameRef = REF_USERS.queryOrdered(byChild: "userName").queryEqual(toValue: username)
         
-        var isCreated: Bool = false
-        verifyAndSetProps()
-        
-        Auth.auth().createUser(withEmail: userReg.email, password: userReg.password) { (result, error) in
-            if let error = error {
-                print("Debug: Error is \(error.localizedDescription)")
-                return
+        usernameRef.observeSingleEvent(of: .value) { snapshot in
+            if snapshot.exists() {
+                // O nome de usuário já está em uso
+                completion(false, nil)
+            } else {
+                // O nome de usuário está disponível
+                completion(true, nil)
             }
-            self.result = result
-            self.profileImageToUrl()
-            print("Debug: Successfully registered user.")
-            isCreated = true
+        } withCancel: { error in
+            // Ocorreu um erro ao executar a consulta
+            completion(false, error)
+        }
+    }
+
+    
+    func registerUser(completion: @escaping (AuthDataResult?, Error?) -> Void) throws {
+        
+        do {
+            try verifyAndSetProps()
+            
+            checkUsernameAvailability(username: userReg.userName) { isAvailable, error in
+                if let error = error {
+                    completion(nil, error)
+                } else if !isAvailable {
+                    completion(nil, RegistrationError.usernameAlreadyExists)
+                } else {
+                    Auth.auth().createUser(withEmail: self.userReg.email, password: self.userReg.password) { (result, error) in
+                        if let error = error {
+                            completion(nil, error)
+                            return
+                        }
+                        
+                        self.result = result
+                        self.profileImageToUrl()
+                        
+                        if let user = result?.user {
+                            if user.isEmailVerified {
+                                self.userReg.emailVerified = true
+                            }
+                        }
+                        
+                        completion(result, nil)
+                    }
+                }
+            }
+            
+        } catch let error as RegistrationError {
+            completion(nil, error)
+        } catch {
+            completion(nil, error)
         }
         
-        return isCreated
     }
-    
+
+        
     func profileImageToUrl() {
         
         guard let imageData = self.profileImageReg.jpegData(compressionQuality: 0.3) else {return}
@@ -86,7 +134,8 @@ class RegistrationVM: UserRegistration {
             "password": userReg.password,
             "fullName": userReg.fullName,
             "userName": userReg.userName,
-            "profileImageUrl": userReg.profileImageUrl
+            "profileImageUrl": userReg.profileImageUrl,
+            "emailVerified": userReg.emailVerified
         ]
         
         REF_USERS.child(userReg.userId).updateChildValues(userDictionary) { erro, ref in
@@ -100,15 +149,33 @@ class RegistrationVM: UserRegistration {
         
         user.sendEmailVerification { error in
             if let error = error {
-                print("Error sending verification email: \(error.localizedDescription)")
-            } else {
-                if let email = user.email {
-                    print("Verification email sent to \(email)")
-                } else {
-                    print("Verification email sent.")
-                }
+                print("DEBUG: Error sending verification email: \(error.localizedDescription)")
             }
         }
     }
     
 }
+
+enum RegistrationError: Error {
+    case missingEmail
+    case missingPassword
+    case missingFullName
+    case missingUsername
+    case usernameAlreadyExists
+    
+    var errorMessage: String {
+        switch self {
+        case .missingEmail:
+            return "Please enter your email."
+        case .missingPassword:
+            return "Please enter your password."
+        case .missingFullName:
+            return "Please enter your full name."
+        case .missingUsername:
+            return "Please enter your username."
+        case .usernameAlreadyExists:
+            return "Username already exists. Please choose a different username."
+        }
+    }
+}
+

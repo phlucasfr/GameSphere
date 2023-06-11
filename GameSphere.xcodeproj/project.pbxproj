@@ -20,20 +20,21 @@
 		E02A3CC02A1D3355004D536F /* GameSphereUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02A3CBF2A1D3355004D536F /* GameSphereUITests.swift */; };
 		E02A3CC22A1D3355004D536F /* GameSphereUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02A3CC12A1D3355004D536F /* GameSphereUITestsLaunchTests.swift */; };
 		E02A3CD42A1D3AE8004D536F /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02A3CD32A1D3AE8004D536F /* LoginController.swift */; };
-		E035D2C02A2256CA008D53AE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E035D2BF2A2256CA008D53AE /* GoogleService-Info.plist */; };
 		E03984FE2A1E61AB00B66470 /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03984FD2A1E61AB00B66470 /* RegistrationController.swift */; };
 		E04E97E62A34B661009DC8CF /* MainTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04E97E52A34B661009DC8CF /* MainTabViewModel.swift */; };
 		E051E4892A1D4A030070D725 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E051E4882A1D4A030070D725 /* Extensions.swift */; };
 		E051E48B2A1D51110070D725 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E051E48A2A1D51110070D725 /* Utilities.swift */; };
 		E054A1DA2A2FD8C800955D7C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E054A1D92A2FD8C800955D7C /* Constants.swift */; };
+		E05516452A361F9E00F3CB72 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05516442A361F9E00F3CB72 /* LoadingIndicator.swift */; };
 		E07DFB812A22FCED00C68881 /* RegistrationVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07DFB802A22FCED00C68881 /* RegistrationVM.swift */; };
 		E07DFB842A22FFA200C68881 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E07DFB832A22FFA200C68881 /* SnapKit */; };
 		E0904EDC2A3384200072FCAD /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0904EDB2A3384200072FCAD /* MainTabController.swift */; };
 		E0904EDE2A3385150072FCAD /* FeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0904EDD2A3385150072FCAD /* FeedController.swift */; };
 		E0904EE02A3387470072FCAD /* ExploreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0904EDF2A3387470072FCAD /* ExploreController.swift */; };
 		E0904EE22A338B4E0072FCAD /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0904EE12A338B4E0072FCAD /* NotificationController.swift */; };
-		E0904EE42A338B810072FCAD /* ConversationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0904EE32A338B810072FCAD /* ConversationController.swift */; };
 		E095B52A2A22911100659C89 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = E095B5292A22911100659C89 /* .gitignore */; };
+		E09EAC7B2A35301E00332716 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E09EAC7A2A35301E00332716 /* GoogleService-Info.plist */; };
+		E09EAC7D2A35305A00332716 /* ConversationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09EAC7C2A35305A00332716 /* ConversationController.swift */; };
 		E0A341B72A22A1A600A28F8A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A341B62A22A1A600A28F8A /* User.swift */; };
 /* End PBXBuildFile section */
 
@@ -77,19 +78,20 @@
 		E02A3CBF2A1D3355004D536F /* GameSphereUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSphereUITests.swift; sourceTree = "<group>"; };
 		E02A3CC12A1D3355004D536F /* GameSphereUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSphereUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E02A3CD32A1D3AE8004D536F /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
-		E035D2BF2A2256CA008D53AE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E03984FD2A1E61AB00B66470 /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
 		E04E97E52A34B661009DC8CF /* MainTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewModel.swift; sourceTree = "<group>"; };
 		E051E4882A1D4A030070D725 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E051E48A2A1D51110070D725 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		E054A1D92A2FD8C800955D7C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E05516442A361F9E00F3CB72 /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
 		E07DFB802A22FCED00C68881 /* RegistrationVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationVM.swift; sourceTree = "<group>"; };
 		E0904EDB2A3384200072FCAD /* MainTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
 		E0904EDD2A3385150072FCAD /* FeedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedController.swift; sourceTree = "<group>"; };
 		E0904EDF2A3387470072FCAD /* ExploreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreController.swift; sourceTree = "<group>"; };
 		E0904EE12A338B4E0072FCAD /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
-		E0904EE32A338B810072FCAD /* ConversationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationController.swift; sourceTree = "<group>"; };
 		E095B5292A22911100659C89 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		E09EAC7A2A35301E00332716 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E09EAC7C2A35305A00332716 /* ConversationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationController.swift; sourceTree = "<group>"; };
 		E0A341B62A22A1A600A28F8A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F8F2A7442B15916798721503 /* Pods-GameSphereTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameSphereTests.debug.xcconfig"; path = "Target Support Files/Pods-GameSphereTests/Pods-GameSphereTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -179,7 +181,7 @@
 				E02A3CA02A1D3354004D536F /* SceneDelegate.swift */,
 				E02A3CA42A1D3354004D536F /* Main.storyboard */,
 				E02A3CA72A1D3355004D536F /* Assets.xcassets */,
-				E035D2BF2A2256CA008D53AE /* GoogleService-Info.plist */,
+				E09EAC7A2A35301E00332716 /* GoogleService-Info.plist */,
 				E02A3CA92A1D3355004D536F /* LaunchScreen.storyboard */,
 				E02A3CAC2A1D3355004D536F /* Info.plist */,
 				E095B5292A22911100659C89 /* .gitignore */,
@@ -212,7 +214,7 @@
 				E0904EDD2A3385150072FCAD /* FeedController.swift */,
 				E0904EDF2A3387470072FCAD /* ExploreController.swift */,
 				E0904EE12A338B4E0072FCAD /* NotificationController.swift */,
-				E0904EE32A338B810072FCAD /* ConversationController.swift */,
+				E09EAC7C2A35305A00332716 /* ConversationController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -250,6 +252,7 @@
 				E051E4882A1D4A030070D725 /* Extensions.swift */,
 				E051E48A2A1D51110070D725 /* Utilities.swift */,
 				E054A1D92A2FD8C800955D7C /* Constants.swift */,
+				E05516442A361F9E00F3CB72 /* LoadingIndicator.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -371,9 +374,9 @@
 			files = (
 				E095B52A2A22911100659C89 /* .gitignore in Resources */,
 				E02A3CAB2A1D3355004D536F /* LaunchScreen.storyboard in Resources */,
+				E09EAC7B2A35301E00332716 /* GoogleService-Info.plist in Resources */,
 				E02A3CA82A1D3355004D536F /* Assets.xcassets in Resources */,
 				E02A3CA62A1D3354004D536F /* Main.storyboard in Resources */,
-				E035D2C02A2256CA008D53AE /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,12 +505,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E02A3CD42A1D3AE8004D536F /* LoginController.swift in Sources */,
-				E0904EE42A338B810072FCAD /* ConversationController.swift in Sources */,
 				E02A3C9F2A1D3354004D536F /* AppDelegate.swift in Sources */,
 				E02A3CA12A1D3354004D536F /* SceneDelegate.swift in Sources */,
 				E0904EE02A3387470072FCAD /* ExploreController.swift in Sources */,
 				E051E48B2A1D51110070D725 /* Utilities.swift in Sources */,
+				E05516452A361F9E00F3CB72 /* LoadingIndicator.swift in Sources */,
 				E03984FE2A1E61AB00B66470 /* RegistrationController.swift in Sources */,
+				E09EAC7D2A35305A00332716 /* ConversationController.swift in Sources */,
 				E054A1DA2A2FD8C800955D7C /* Constants.swift in Sources */,
 				E07DFB812A22FCED00C68881 /* RegistrationVM.swift in Sources */,
 				E04E97E62A34B661009DC8CF /* MainTabViewModel.swift in Sources */,

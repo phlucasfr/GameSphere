@@ -14,23 +14,40 @@ class LoginVM: UserLogin {
     let passwordTextField = Utilities().inputTextField(placeHolderText: "Password", isSecureField: true)
     var email = ""
     var password = ""
-        
+    
     func goToRegistration(actualNavController: UINavigationController){
         let controller = RegistrationController()
         actualNavController.pushViewController(controller, animated: true)
     }
     
-    private func verifyAndSetProps(){
-        guard let email = emailTextField.text else { return }
-        guard let password = passwordTextField.text else { return }
+    private func verifyAndSetProps() throws {
+        guard let email = emailTextField.text, !email.isEmpty else {
+            throw LoginError.missingEmail
+        }
+        guard let password = passwordTextField.text, !password.isEmpty else {
+            throw LoginError.missingPassword
+        }
         
         self.email = email
         self.password = password
     }
     
-    func logUserIn(completion: ((AuthDataResult?, Error?) -> Void)?) {
-        verifyAndSetProps()        
+    func logUserIn(completion: ((AuthDataResult?, Error?) -> Void)?) throws {
+        try verifyAndSetProps()
         Auth.auth().signIn(withEmail: self.email, password: self.password, completion: completion)
     }
+}
 
+enum LoginError: Error {
+    case missingEmail
+    case missingPassword
+    
+    var errorMessage: String {
+        switch self {
+        case .missingEmail:
+            return "Please enter your email."
+        case .missingPassword:
+            return "Please enter your password."
+        }
+    }
 }
