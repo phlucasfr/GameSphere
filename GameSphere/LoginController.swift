@@ -12,6 +12,7 @@ class LoginController: UIViewController {
     
     //MARK - Properties
     private let loginVM = LoginVM()
+    private let utilities = Utilities()
     
     private let logoImageView: UIImageView = {
         let view = UIImageView()
@@ -24,18 +25,18 @@ class LoginController: UIViewController {
     
     private lazy var emailContainerView: UIView = {
         let image = UIImage(imageLiteralResourceName: "ic_mail_outline_white_2x-1")
-        let view = Utilities().inputContainerView(withImage: image, textField: loginVM.emailTextField)
+        let view = utilities.inputContainerView(withImage: image, textField: loginVM.emailTextField)
         
         return view
     }()
     
     private lazy var passwordContainerView: UIView = {
         let image = UIImage(imageLiteralResourceName: "ic_lock_outline_white_2x")
-        let view = Utilities().inputContainerView(withImage: image, textField: loginVM.passwordTextField)
+        let view = utilities.inputContainerView(withImage: image, textField: loginVM.passwordTextField)
         
         return view
     }()
-        
+    
     private lazy var loginButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Log In", for: .normal)
@@ -49,12 +50,12 @@ class LoginController: UIViewController {
     }()
     
     private lazy var dontHaveAccountButton: UIButton = {
-        let button = Utilities().attributedButton("Don't have an account?", " Sign Up")
+        let button = utilities.attributedButton("Don't have an account?", " Sign Up")
         button.addTarget(self, action: #selector(handleShowSignUp), for: .touchUpInside)
         
         return button
     }()
-        
+    
     //MARK - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,22 +65,38 @@ class LoginController: UIViewController {
     
     //MARK - Selectors
     @objc private func handleLogin() {
-               
-        loginVM.logUserIn(completion: { (result, error) in
-            if let error = error {
-                print("DEBUG: Error loggin in \(error.localizedDescription)")
-                return
-            }
-            
-            guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-                  let window = windowScene.windows.first(where: { $0.isKeyWindow }),
-                  let tab = window.rootViewController as? MainTabController else {
-                return
-            }
-
-            tab.authenticateUserAndConfigureUI()            
-            self.dismiss(animated: true, completion: nil)
-        })
+        LoadingIndicator.showLoadingIndicator(in: self.view)
+        
+        do {
+            try loginVM.logUserIn(completion: { (result, error) in
+                if let error = error as? LoginError {
+                    self.utilities.showPopUpMessage(title: "Error", message: error.errorMessage, viewController: self)
+                } else if let error = error {
+                    self.utilities.showPopUpMessage(title: "Error", message: "\(error.localizedDescription)", viewController: self)
+                } else if let user = result?.user {
+                    if user.isEmailVerified {
+                        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                              let window = windowScene.windows.first(where: { $0.isKeyWindow }),
+                              let tab = window.rootViewController as? MainTabController else {
+                            return
+                        }
+                        
+                        tab.authenticateUserAndConfigureUI()
+                        self.dismiss(animated: true, completion: nil)
+                    } else {
+                        self.utilities.showPopUpMessage(title: "Error", message: "Please check your email to log in.", viewController: self)
+                    }
+                }
+                
+                LoadingIndicator.hideLoadingIndicator()
+            })
+        } catch let error as LoginError {
+            self.utilities.showPopUpMessage(title: "Error", message: "\(error.errorMessage)", viewController: self)
+            LoadingIndicator.hideLoadingIndicator()
+        } catch {
+            self.utilities.showPopUpMessage(title: "Error", message: "\(error.localizedDescription)", viewController: self)
+            LoadingIndicator.hideLoadingIndicator()
+        }
     }
     
     @objc private func handleShowSignUp() {
@@ -119,5 +136,5 @@ class LoginController: UIViewController {
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
             make.right.equalTo(view.snp.right).offset(-40)
         }
-    }    
+    }
 }

@@ -14,6 +14,7 @@ struct User {
     var fullName: String
     var userName: String
     var profileImageUrl: String
+    var emailVerified: Bool
 }
 
 protocol UserLogin {

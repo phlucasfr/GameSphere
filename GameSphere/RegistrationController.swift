@@ -18,7 +18,9 @@ class RegistrationController: UIViewController {
     }()
     
     private let user = RegistrationVM()
+    private let utilities = Utilities()
     private var profileImage: UIImage?
+    private var handlPopupMsg: String?
     
     private lazy var plusPhotoButton:UIButton = {
         let button = UIButton(type: .system)
@@ -30,27 +32,27 @@ class RegistrationController: UIViewController {
     
     private lazy var emailContainerView: UIView = {
         let image = UIImage(imageLiteralResourceName: "ic_mail_outline_white_2x-1")
-        let view = Utilities().inputContainerView(withImage: image, textField: user.emailTextField)
+        let view = utilities.inputContainerView(withImage: image, textField: user.emailTextField)
         
         return view
     }()
     
     private lazy var passwordContainerView: UIView = {
         let image = UIImage(imageLiteralResourceName: "ic_lock_outline_white_2x")
-        let view = Utilities().inputContainerView(withImage: image, textField: user.passwordTextField)
+        let view = utilities.inputContainerView(withImage: image, textField: user.passwordTextField)
         
         return view
     }()
     private lazy var fullnameContainerView: UIView = {
         let image = UIImage(imageLiteralResourceName: "ic_person_outline_white_2x")
-        let view = Utilities().inputContainerView(withImage: image, textField: user.fullnameTextField)
+        let view = utilities.inputContainerView(withImage: image, textField: user.fullnameTextField)
         
         return view
     }()
     
     private lazy var usernameContainerView: UIView = {
         let image = UIImage(imageLiteralResourceName: "ic_person_outline_white_2x")
-        let view = Utilities().inputContainerView(withImage: image, textField: user.usernameTextField)
+        let view = utilities.inputContainerView(withImage: image, textField: user.usernameTextField)
         
         return view
     }()
@@ -69,7 +71,7 @@ class RegistrationController: UIViewController {
     }()
     
     private lazy var alreadyHaveAccountButton: UIButton = {
-        let button = Utilities().attributedButton("Already have an account?", " Login")
+        let button = utilities.attributedButton("Already have an account?", " Login")
         button.addTarget(self, action: #selector(handleShowLogin), for: .touchUpInside)
         
         return button
@@ -83,39 +85,64 @@ class RegistrationController: UIViewController {
     }
     
     //MARK - Selectors
-    @objc private func handleShowLogin(){
+    @objc private func handleShowLogin() {
         navigationController?.popViewController(animated: true)
+
+        guard let targetViewController = navigationController?.topViewController else {
+            return
+        }
+
+        if let message = self.handlPopupMsg, !message.isEmpty {
+            showSuccessMessage(in: targetViewController, msg: message)
+        }
     }
-    
+      
     @objc private func handleAddPhotoProfile(){
         present(imagePicker, animated: true, completion: nil)
     }
     
     @objc private func handleRegister() {
+        LoadingIndicator.showLoadingIndicator(in: self.view)
         
         let profileImage = self.profileImage
         if profileImage == nil {
-            print("Debug: Please select a profile image")
+            self.utilities.showPopUpMessage(title: "Error", message: "Please select a profile image", viewController: self)
+            LoadingIndicator.hideLoadingIndicator()
             return
         }
-        
         user.profileImageReg = profileImage!
-        let isCreated = user.registerUser()
         
-        if isCreated {
-            guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-                  let window = windowScene.windows.first(where: { $0.isKeyWindow }),
-                  let tab = window.rootViewController as? MainTabController else {
-                return
+        do {
+            try user.registerUser { (result, error) in
+                LoadingIndicator.hideLoadingIndicator()
+                
+                if let error = error {
+                    if let registrationError = error as? RegistrationError {
+                        // Handle specific RegistrationError
+                        self.utilities.showPopUpMessage(title: "Error", message: registrationError.errorMessage, viewController: self)
+                    } else {
+                        // Handle other errors
+                        self.utilities.showPopUpMessage(title: "Error", message: "\(error.localizedDescription)", viewController: self)
+                    }
+                    return
+                } else if result != nil {
+                    // Registration successful
+                    self.handlPopupMsg = "Please verify your email to complete the registration."
+                    self.handleShowLogin()
+                }
             }
-            
-            tab.logUserOut()
-            tab.authenticateUserAndConfigureUI()
-            self.dismiss(animated: true, completion: nil)
-        }                
+        } catch let error {
+            // Handle any other errors
+            LoadingIndicator.hideLoadingIndicator()
+            self.utilities.showPopUpMessage(title: "Error", message: "\(error.localizedDescription)", viewController: self)
+        }
     }
     
     //MARK - Helpers
+    private func showSuccessMessage(in viewController: UIViewController, msg: String) {
+        self.utilities.showPopUpMessage(title: "Success", message: msg, viewController: viewController)
+    }
+    
     func configureUI() {
         view.backgroundColor = .gameSpherePurple
         
@@ -172,6 +199,5 @@ extension RegistrationController: UIImagePickerControllerDelegate, UINavigationC
         plusPhotoButton.setImage(profileImage.withRenderingMode(.alwaysOriginal), for: .normal)
         
         dismiss(animated: true, completion: nil)
-    }
-    
+    }    
 }
