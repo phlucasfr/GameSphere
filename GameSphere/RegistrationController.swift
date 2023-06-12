@@ -92,8 +92,8 @@ class RegistrationController: UIViewController {
             return
         }
 
-        if let message = self.handlPopupMsg, !message.isEmpty {
-            showSuccessMessage(in: targetViewController, msg: message)
+        if let msg = self.handlPopupMsg, !msg.isEmpty {
+            self.utilities.showPopUpMessage(title: "Success", message: msg, viewController: targetViewController)
         }
     }
       
@@ -138,11 +138,7 @@ class RegistrationController: UIViewController {
         }
     }
     
-    //MARK - Helpers
-    private func showSuccessMessage(in viewController: UIViewController, msg: String) {
-        self.utilities.showPopUpMessage(title: "Success", message: msg, viewController: viewController)
-    }
-    
+    //MARK - Helpers    
     func configureUI() {
         view.backgroundColor = .gameSpherePurple
         

@@ -11,7 +11,7 @@ import Firebase
 class MainTabController: UITabBarController {
     
     // MARK - Properties    
-    private let mainTabviewModel = MainTabViewModel()
+    private let mainTabviewModel = MainTabVM()
     
     private lazy var actionButton: UIButton = {
         let button = UIButton(type: .system)
@@ -52,16 +52,20 @@ class MainTabController: UITabBarController {
     // MARK - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .gameSpherePurple
+        view.backgroundColor = .white
         
         logUserOut()
         authenticateUserAndConfigureUI()
     }
     
     // MARK - Helpers
-    func configureUI(){
+    func configureUI() {
         view.addSubview(actionButton)
-        actionButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, paddingBottom: 64, paddingRight: 16, width: 56, height: 56)
+        actionButton.snp.makeConstraints { make in
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-64)
+            make.right.equalTo(view.snp.right).offset(-16)
+            make.width.height.equalTo(56)
+        }
         actionButton.layer.cornerRadius = 56 / 2
     }
     

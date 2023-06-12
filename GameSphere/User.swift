@@ -13,8 +13,7 @@ struct User {
     var password: String
     var fullName: String
     var userName: String
-    var profileImageUrl: String
-    var emailVerified: Bool
+    var profileImageUrl: String   
 }
 
 protocol UserLogin {
@@ -24,6 +23,10 @@ protocol UserLogin {
 
 protocol UserRegistration {    
     var userReg: User { get set }
+}
+
+protocol ForgotPassword {
+    var email: String { get set }
 }
 
 
