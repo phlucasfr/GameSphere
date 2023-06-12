@@ -16,6 +16,13 @@ struct User {
     var profileImageUrl: String   
 }
 
+struct UserProfile {
+    var email: String
+    var fullName: String
+    var userName: String
+    var profileImageUrl: String
+}
+
 protocol UserLogin {
     var email: String { get set }
     var password: String { get set }

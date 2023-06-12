@@ -118,7 +118,6 @@ class RegistrationVM: UserRegistration {
         // updateChildValues needs to be a Dictionary
         let userDictionary: [String: Any] = [
             "email": userReg.email,
-            "password": userReg.password,
             "fullName": userReg.fullName,
             "userName": userReg.userName,
             "profileImageUrl": userReg.profileImageUrl
