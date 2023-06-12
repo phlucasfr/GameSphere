@@ -20,6 +20,11 @@ class LoginVM: UserLogin {
         actualNavController.pushViewController(controller, animated: true)
     }
     
+    func goToForgotPassword(actualNavController: UINavigationController){
+        let controller = ForgotPasswordController()
+        actualNavController.pushViewController(controller, animated: true)
+    }
+    
     private func verifyAndSetProps() throws {
         guard let email = emailTextField.text, !email.isEmpty else {
             throw LoginError.missingEmail

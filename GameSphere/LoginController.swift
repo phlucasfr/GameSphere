@@ -56,6 +56,13 @@ class LoginController: UIViewController {
         return button
     }()
     
+    private lazy var forgotPasswordButton: UIButton = {
+        let button = utilities.attributedButton("Forgot your password?", "")
+        button.addTarget(self, action: #selector(handleShowForgotPassword), for: .touchUpInside)
+        
+        return button
+    }()
+    
     //MARK - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,8 +107,11 @@ class LoginController: UIViewController {
     }
     
     @objc private func handleShowSignUp() {
-        let registrationView = loginVM
-        registrationView.goToRegistration(actualNavController: navigationController!)
+        loginVM.goToRegistration(actualNavController: navigationController!)
+    }
+    
+    @objc private func handleShowForgotPassword() {     
+        loginVM.goToForgotPassword(actualNavController: navigationController!)
     }
     
     //MARK - Helpers
@@ -129,6 +139,13 @@ class LoginController: UIViewController {
             make.left.equalTo(view.snp.left).offset(32)
             make.right.equalTo(view.snp.right).offset(-32)
         }
+        
+        view.addSubview(forgotPasswordButton)
+        forgotPasswordButton.snp.makeConstraints { make in
+            make.top.equalTo(loginButton.snp.bottom).offset(2)
+            make.right.equalTo(loginButton.snp.right)
+        }
+
         
         view.addSubview(dontHaveAccountButton)
         dontHaveAccountButton.snp.makeConstraints { make in

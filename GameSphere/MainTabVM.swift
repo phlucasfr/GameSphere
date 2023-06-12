@@ -7,7 +7,7 @@
 
 import Firebase
 
-class MainTabViewModel {
+class MainTabVM {
     
     func authenticateUser(completion: @escaping (Bool) -> Void) {
         if Auth.auth().currentUser == nil {
