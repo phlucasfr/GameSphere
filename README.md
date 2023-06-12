@@ -5,11 +5,9 @@ GameSphere is a social gaming app that connects players, facilitating multiplaye
 - This project uses concepts from CI/CD,MVVM,OOP and REST to achieve its goals.
 
 ## Features
-- Login Screen UI
-- Register Screen UI
-- Image Profile Selection
 - User Registration
 - Mail Verification
+- Password Reset
 
 ## Stacks
 - Snapkit
