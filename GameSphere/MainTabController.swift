@@ -24,11 +24,16 @@ class MainTabController: UITabBarController {
     }()
     
     // MARK - API
+    func fetchUser(){
+        UserService.shared.fetchUser()
+    }
+    
     func authenticateUserAndConfigureUI(){
         mainTabviewModel.authenticateUser { [weak self] isAuthenticated in
             if isAuthenticated {
                 self?.configureViewControllers()
                 self?.configureUI()
+                self?.fetchUser()
             } else {
                 self?.showLoginScreen()
             }
@@ -54,7 +59,7 @@ class MainTabController: UITabBarController {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-        logUserOut()
+        //logUserOut()
         authenticateUserAndConfigureUI()
     }
     

@@ -11,6 +11,7 @@
 		8AE214F0160B36D257D0AB7C /* Pods_GameSphereTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE6CCBE3EC049C2CCA18BC5 /* Pods_GameSphereTests.framework */; };
 		95A3BD0C7F25334E050CA974 /* Pods_GameSphere_GameSphereUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41EC28677D34F235B085A5AB /* Pods_GameSphere_GameSphereUITests.framework */; };
 		E00C4B772A23C53F004EA2F2 /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00C4B762A23C53F004EA2F2 /* LoginVM.swift */; };
+		E0147C192A37C6B700DD094E /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0147C182A37C6B700DD094E /* UserService.swift */; };
 		E01C36192A379D7700EC8FBA /* ForgotPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01C36182A379D7700EC8FBA /* ForgotPasswordController.swift */; };
 		E01C361B2A379DA700EC8FBA /* ForgotPasswordVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01C361A2A379DA700EC8FBA /* ForgotPasswordVM.swift */; };
 		E02A3C9F2A1D3354004D536F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02A3C9E2A1D3354004D536F /* AppDelegate.swift */; };
@@ -67,6 +68,7 @@
 		A82C2A02AE81C752CABD78C8 /* Pods-GameSphere-GameSphereUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameSphere-GameSphereUITests.release.xcconfig"; path = "Target Support Files/Pods-GameSphere-GameSphereUITests/Pods-GameSphere-GameSphereUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C0C0B4276F579F3E296ABF0C /* Pods-GameSphere.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameSphere.debug.xcconfig"; path = "Target Support Files/Pods-GameSphere/Pods-GameSphere.debug.xcconfig"; sourceTree = "<group>"; };
 		E00C4B762A23C53F004EA2F2 /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
+		E0147C182A37C6B700DD094E /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		E01C36182A379D7700EC8FBA /* ForgotPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordController.swift; sourceTree = "<group>"; };
 		E01C361A2A379DA700EC8FBA /* ForgotPasswordVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVM.swift; sourceTree = "<group>"; };
 		E02A3C9B2A1D3354004D536F /* GameSphere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameSphere.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -227,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				E0A341B62A22A1A600A28F8A /* User.swift */,
+				E0147C182A37C6B700DD094E /* UserService.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -526,6 +529,7 @@
 				E051E4892A1D4A030070D725 /* Extensions.swift in Sources */,
 				E01C36192A379D7700EC8FBA /* ForgotPasswordController.swift in Sources */,
 				E0904EE22A338B4E0072FCAD /* NotificationController.swift in Sources */,
+				E0147C192A37C6B700DD094E /* UserService.swift in Sources */,
 				E0904EDC2A3384200072FCAD /* MainTabController.swift in Sources */,
 				E0A341B72A22A1A600A28F8A /* User.swift in Sources */,
 				E00C4B772A23C53F004EA2F2 /* LoginVM.swift in Sources */,
