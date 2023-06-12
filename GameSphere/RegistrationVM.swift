@@ -23,8 +23,7 @@ class RegistrationVM: UserRegistration {
         password: "",
         fullName: "",
         userName: "",
-        profileImageUrl: "",
-        emailVerified: false
+        profileImageUrl: ""
     )
     
     var result: AuthDataResult?
@@ -65,10 +64,8 @@ class RegistrationVM: UserRegistration {
             completion(false, error)
         }
     }
-
     
     func registerUser(completion: @escaping (AuthDataResult?, Error?) -> Void) throws {
-        
         do {
             try verifyAndSetProps()
             
@@ -86,13 +83,7 @@ class RegistrationVM: UserRegistration {
                         
                         self.result = result
                         self.profileImageToUrl()
-                        
-                        if let user = result?.user {
-                            if user.isEmailVerified {
-                                self.userReg.emailVerified = true
-                            }
-                        }
-                        
+                                               
                         completion(result, nil)
                     }
                 }
@@ -102,13 +93,10 @@ class RegistrationVM: UserRegistration {
             completion(nil, error)
         } catch {
             completion(nil, error)
-        }
-        
+        }        
     }
-
         
     func profileImageToUrl() {
-        
         guard let imageData = self.profileImageReg.jpegData(compressionQuality: 0.3) else {return}
         let fileName = NSUUID().uuidString
         
@@ -124,7 +112,6 @@ class RegistrationVM: UserRegistration {
     }
     
     func insertUser() {
-        
         guard let userId = self.result?.user.uid else { return }
         userReg.userId = userId
         
@@ -134,8 +121,7 @@ class RegistrationVM: UserRegistration {
             "password": userReg.password,
             "fullName": userReg.fullName,
             "userName": userReg.userName,
-            "profileImageUrl": userReg.profileImageUrl,
-            "emailVerified": userReg.emailVerified
+            "profileImageUrl": userReg.profileImageUrl
         ]
         
         REF_USERS.child(userReg.userId).updateChildValues(userDictionary) { erro, ref in
@@ -178,4 +164,3 @@ enum RegistrationError: Error {
         }
     }
 }
-
