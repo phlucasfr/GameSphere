@@ -12,6 +12,14 @@ class MainTabController: UITabBarController {
     
     // MARK - Properties    
     private let mainTabviewModel = MainTabVM()
+    private var user: UserProfile? {
+        didSet {
+            guard let nav = viewControllers?[0] as? UINavigationController else { return }
+            guard let feed = nav.viewControllers.first as? FeedController else { return }
+            
+            feed.user = user
+        }
+    }
     
     private lazy var actionButton: UIButton = {
         let button = UIButton(type: .system)
@@ -25,7 +33,9 @@ class MainTabController: UITabBarController {
     
     // MARK - API
     func fetchUser(){
-        UserService.shared.fetchUser()
+        UserService.shared.fetchUser { user in
+            self.user = user
+        }
     }
     
     func authenticateUserAndConfigureUI(){

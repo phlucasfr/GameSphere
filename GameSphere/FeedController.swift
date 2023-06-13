@@ -9,6 +9,9 @@ import UIKit
 
 class FeedController: UIViewController {
     // MARK - Properties
+    var user: UserProfile? {
+        didSet{ print("Did set user in feed")}
+    }
     
     // MARK - Lifecycle
 
@@ -24,5 +27,12 @@ class FeedController: UIViewController {
         let imageView = UIImageView(image: UIImage(named: "GameSphereLogo"))
         imageView.contentMode = .scaleAspectFit
         navigationItem.titleView = imageView
+        
+        let profileImageView = UIImageView()
+        profileImageView.backgroundColor = .gameSpherePurple
+        profileImageView.setDimensions(width: 32, height: 32)
+        profileImageView.layer.cornerRadius = 32 / 2
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: profileImageView)
     }
 }
