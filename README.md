@@ -11,6 +11,7 @@ GameSphere is a social gaming app that connects players, facilitating multiplaye
 
 ## Stacks
 - Snapkit
+- SDWebImage
 - Firebase
 
 <div style="text-align:center;">
