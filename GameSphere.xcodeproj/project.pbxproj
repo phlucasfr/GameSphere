@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		6F193EC82B7E65A8B20697F0 /* Pods_GameSphere.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA3867EABFBB22463F2DCDD /* Pods_GameSphere.framework */; };
-		8AE214F0160B36D257D0AB7C /* Pods_GameSphereTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE6CCBE3EC049C2CCA18BC5 /* Pods_GameSphereTests.framework */; };
-		95A3BD0C7F25334E050CA974 /* Pods_GameSphere_GameSphereUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41EC28677D34F235B085A5AB /* Pods_GameSphere_GameSphereUITests.framework */; };
 		E00C4B772A23C53F004EA2F2 /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00C4B762A23C53F004EA2F2 /* LoginVM.swift */; };
 		E0147C192A37C6B700DD094E /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0147C182A37C6B700DD094E /* UserService.swift */; };
 		E01C36192A379D7700EC8FBA /* ForgotPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01C36182A379D7700EC8FBA /* ForgotPasswordController.swift */; };
@@ -60,12 +58,7 @@
 
 /* Begin PBXFileReference section */
 		4151C4273880C009D76000AC /* Pods-GameSphere.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameSphere.release.xcconfig"; path = "Target Support Files/Pods-GameSphere/Pods-GameSphere.release.xcconfig"; sourceTree = "<group>"; };
-		41EC28677D34F235B085A5AB /* Pods_GameSphere_GameSphereUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GameSphere_GameSphereUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4BF4905E9497904369F71A5C /* Pods-GameSphere-GameSphereUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameSphere-GameSphereUITests.debug.xcconfig"; path = "Target Support Files/Pods-GameSphere-GameSphereUITests/Pods-GameSphere-GameSphereUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		5DE6CCBE3EC049C2CCA18BC5 /* Pods_GameSphereTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GameSphereTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FA3867EABFBB22463F2DCDD /* Pods_GameSphere.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GameSphere.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9DCDD89F0FE1EBF99925BB07 /* Pods-GameSphereTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameSphereTests.release.xcconfig"; path = "Target Support Files/Pods-GameSphereTests/Pods-GameSphereTests.release.xcconfig"; sourceTree = "<group>"; };
-		A82C2A02AE81C752CABD78C8 /* Pods-GameSphere-GameSphereUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameSphere-GameSphereUITests.release.xcconfig"; path = "Target Support Files/Pods-GameSphere-GameSphereUITests/Pods-GameSphere-GameSphereUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C0C0B4276F579F3E296ABF0C /* Pods-GameSphere.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameSphere.debug.xcconfig"; path = "Target Support Files/Pods-GameSphere/Pods-GameSphere.debug.xcconfig"; sourceTree = "<group>"; };
 		E00C4B762A23C53F004EA2F2 /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
 		E0147C182A37C6B700DD094E /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
@@ -99,7 +92,6 @@
 		E09EAC7A2A35301E00332716 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E09EAC7C2A35305A00332716 /* ConversationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationController.swift; sourceTree = "<group>"; };
 		E0A341B62A22A1A600A28F8A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		F8F2A7442B15916798721503 /* Pods-GameSphereTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameSphereTests.debug.xcconfig"; path = "Target Support Files/Pods-GameSphereTests/Pods-GameSphereTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,7 +108,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8AE214F0160B36D257D0AB7C /* Pods_GameSphereTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,7 +115,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95A3BD0C7F25334E050CA974 /* Pods_GameSphere_GameSphereUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,8 +125,6 @@
 			isa = PBXGroup;
 			children = (
 				6FA3867EABFBB22463F2DCDD /* Pods_GameSphere.framework */,
-				41EC28677D34F235B085A5AB /* Pods_GameSphere_GameSphereUITests.framework */,
-				5DE6CCBE3EC049C2CCA18BC5 /* Pods_GameSphereTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -146,10 +134,6 @@
 			children = (
 				C0C0B4276F579F3E296ABF0C /* Pods-GameSphere.debug.xcconfig */,
 				4151C4273880C009D76000AC /* Pods-GameSphere.release.xcconfig */,
-				4BF4905E9497904369F71A5C /* Pods-GameSphere-GameSphereUITests.debug.xcconfig */,
-				A82C2A02AE81C752CABD78C8 /* Pods-GameSphere-GameSphereUITests.release.xcconfig */,
-				F8F2A7442B15916798721503 /* Pods-GameSphereTests.debug.xcconfig */,
-				9DCDD89F0FE1EBF99925BB07 /* Pods-GameSphereTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -295,7 +279,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E02A3CC82A1D3355004D536F /* Build configuration list for PBXNativeTarget "GameSphereTests" */;
 			buildPhases = (
-				5F8454268890F486B6A4FDB0 /* [CP] Check Pods Manifest.lock */,
 				E02A3CAD2A1D3355004D536F /* Sources */,
 				E02A3CAE2A1D3355004D536F /* Frameworks */,
 				E02A3CAF2A1D3355004D536F /* Resources */,
@@ -314,11 +297,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E02A3CCB2A1D3355004D536F /* Build configuration list for PBXNativeTarget "GameSphereUITests" */;
 			buildPhases = (
-				48ED73B30D0F4162350CD959 /* [CP] Check Pods Manifest.lock */,
 				E02A3CB72A1D3355004D536F /* Sources */,
 				E02A3CB82A1D3355004D536F /* Frameworks */,
 				E02A3CB92A1D3355004D536F /* Resources */,
-				882A963C0DDA9CB4B76C04A6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -363,7 +344,7 @@
 			);
 			mainGroup = E02A3C922A1D3354004D536F;
 			packageReferences = (
-				E07DFB822A22FFA200C68881 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				E07DFB822A22FFA200C68881 /* XCRemoteSwiftPackageReference "SnapKit.git" */,
 			);
 			productRefGroup = E02A3C9C2A1D3354004D536F /* Products */;
 			projectDirPath = "";
@@ -406,50 +387,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		48ED73B30D0F4162350CD959 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-GameSphere-GameSphereUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5F8454268890F486B6A4FDB0 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-GameSphereTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		834ADBB1A1895912E866CC76 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -465,23 +402,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GameSphere/Pods-GameSphere-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		882A963C0DDA9CB4B76C04A6 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-GameSphere-GameSphereUITests/Pods-GameSphere-GameSphereUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-GameSphere-GameSphereUITests/Pods-GameSphere-GameSphereUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GameSphere-GameSphereUITests/Pods-GameSphere-GameSphereUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B3A1F8171D10BA89364B8DB3 /* [CP] Check Pods Manifest.lock */ = {
@@ -766,7 +686,6 @@
 		};
 		E02A3CC92A1D3355004D536F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F8F2A7442B15916798721503 /* Pods-GameSphereTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -786,7 +705,6 @@
 		};
 		E02A3CCA2A1D3355004D536F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9DCDD89F0FE1EBF99925BB07 /* Pods-GameSphereTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -806,7 +724,6 @@
 		};
 		E02A3CCC2A1D3355004D536F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4BF4905E9497904369F71A5C /* Pods-GameSphere-GameSphereUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -824,7 +741,6 @@
 		};
 		E02A3CCD2A1D3355004D536F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A82C2A02AE81C752CABD78C8 /* Pods-GameSphere-GameSphereUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -882,7 +798,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		E07DFB822A22FFA200C68881 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		E07DFB822A22FFA200C68881 /* XCRemoteSwiftPackageReference "SnapKit.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
@@ -895,7 +811,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		E07DFB832A22FFA200C68881 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = E07DFB822A22FFA200C68881 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = E07DFB822A22FFA200C68881 /* XCRemoteSwiftPackageReference "SnapKit.git" */;
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
