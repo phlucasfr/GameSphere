@@ -94,5 +94,13 @@ class Utilities {
         alert.addAction(okAction)
         viewController.present(alert, animated: true, completion: nil)
     }
+    
+    func setWhiteNavBar() -> UINavigationBarAppearance {
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .white
+        
+        return appearance
+    }
 
 }

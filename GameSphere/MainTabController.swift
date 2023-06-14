@@ -12,6 +12,8 @@ class MainTabController: UITabBarController {
     
     // MARK - Properties    
     private let mainTabviewModel = MainTabVM()
+    private let utilities = Utilities()
+    
     private var user: UserProfile? {
         didSet {
             guard let nav = viewControllers?[0] as? UINavigationController else { return }
@@ -61,7 +63,10 @@ class MainTabController: UITabBarController {
     
     // MARK - Selector
     @objc func actionButtonTapped() {
-        print("Hello button!")
+        let nav = UINavigationController(rootViewController: UploadPostController())
+        nav.modalPresentationStyle = .fullScreen
+        present(nav, animated: true, completion: nil)
+       
     }
     
     // MARK - Lifecycle
@@ -120,11 +125,9 @@ class MainTabController: UITabBarController {
     func templateNavigationController(image: UIImage?, rootViewController: UIViewController) -> UINavigationController {
         
         let nav = UINavigationController(rootViewController: rootViewController)
-        
         nav.tabBarItem.image = image
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = .white
+        
+        let appearance = utilities.setWhiteNavBar()        
         nav.navigationBar.standardAppearance = appearance
         nav.navigationBar.scrollEdgeAppearance = nav.navigationBar.standardAppearance
         
