@@ -25,6 +25,7 @@
 		E04E97E62A34B661009DC8CF /* MainTabVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04E97E52A34B661009DC8CF /* MainTabVM.swift */; };
 		E051E4892A1D4A030070D725 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E051E4882A1D4A030070D725 /* Extensions.swift */; };
 		E051E48B2A1D51110070D725 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E051E48A2A1D51110070D725 /* Utilities.swift */; };
+		E0524E992A390F9F00DD2DA0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E0524E982A390F9F00DD2DA0 /* GoogleService-Info.plist */; };
 		E054A1DA2A2FD8C800955D7C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E054A1D92A2FD8C800955D7C /* Constants.swift */; };
 		E05516452A361F9E00F3CB72 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05516442A361F9E00F3CB72 /* LoadingIndicator.swift */; };
 		E07DFB812A22FCED00C68881 /* RegistrationVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07DFB802A22FCED00C68881 /* RegistrationVM.swift */; };
@@ -34,7 +35,6 @@
 		E0904EE02A3387470072FCAD /* ExploreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0904EDF2A3387470072FCAD /* ExploreController.swift */; };
 		E0904EE22A338B4E0072FCAD /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0904EE12A338B4E0072FCAD /* NotificationController.swift */; };
 		E095B52A2A22911100659C89 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = E095B5292A22911100659C89 /* .gitignore */; };
-		E09EAC7B2A35301E00332716 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E09EAC7A2A35301E00332716 /* GoogleService-Info.plist */; };
 		E09EAC7D2A35305A00332716 /* ConversationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09EAC7C2A35305A00332716 /* ConversationController.swift */; };
 		E0A341B72A22A1A600A28F8A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A341B62A22A1A600A28F8A /* User.swift */; };
 /* End PBXBuildFile section */
@@ -81,6 +81,7 @@
 		E04E97E52A34B661009DC8CF /* MainTabVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabVM.swift; sourceTree = "<group>"; };
 		E051E4882A1D4A030070D725 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E051E48A2A1D51110070D725 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		E0524E982A390F9F00DD2DA0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E054A1D92A2FD8C800955D7C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E05516442A361F9E00F3CB72 /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
 		E07DFB802A22FCED00C68881 /* RegistrationVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationVM.swift; sourceTree = "<group>"; };
@@ -89,7 +90,6 @@
 		E0904EDF2A3387470072FCAD /* ExploreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreController.swift; sourceTree = "<group>"; };
 		E0904EE12A338B4E0072FCAD /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		E095B5292A22911100659C89 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		E09EAC7A2A35301E00332716 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E09EAC7C2A35305A00332716 /* ConversationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationController.swift; sourceTree = "<group>"; };
 		E0A341B62A22A1A600A28F8A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -171,8 +171,8 @@
 				E02A3CA02A1D3354004D536F /* SceneDelegate.swift */,
 				E02A3CA42A1D3354004D536F /* Main.storyboard */,
 				E02A3CA72A1D3355004D536F /* Assets.xcassets */,
-				E09EAC7A2A35301E00332716 /* GoogleService-Info.plist */,
 				E02A3CA92A1D3355004D536F /* LaunchScreen.storyboard */,
+				E0524E982A390F9F00DD2DA0 /* GoogleService-Info.plist */,
 				E02A3CAC2A1D3355004D536F /* Info.plist */,
 				E095B5292A22911100659C89 /* .gitignore */,
 			);
@@ -344,7 +344,7 @@
 			);
 			mainGroup = E02A3C922A1D3354004D536F;
 			packageReferences = (
-				E07DFB822A22FFA200C68881 /* XCRemoteSwiftPackageReference "SnapKit.git" */,
+				E07DFB822A22FFA200C68881 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = E02A3C9C2A1D3354004D536F /* Products */;
 			projectDirPath = "";
@@ -364,7 +364,7 @@
 			files = (
 				E095B52A2A22911100659C89 /* .gitignore in Resources */,
 				E02A3CAB2A1D3355004D536F /* LaunchScreen.storyboard in Resources */,
-				E09EAC7B2A35301E00332716 /* GoogleService-Info.plist in Resources */,
+				E0524E992A390F9F00DD2DA0 /* GoogleService-Info.plist in Resources */,
 				E02A3CA82A1D3355004D536F /* Assets.xcassets in Resources */,
 				E02A3CA62A1D3354004D536F /* Main.storyboard in Resources */,
 			);
@@ -798,7 +798,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		E07DFB822A22FFA200C68881 /* XCRemoteSwiftPackageReference "SnapKit.git" */ = {
+		E07DFB822A22FFA200C68881 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
@@ -811,7 +811,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		E07DFB832A22FFA200C68881 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = E07DFB822A22FFA200C68881 /* XCRemoteSwiftPackageReference "SnapKit.git" */;
+			package = E07DFB822A22FFA200C68881 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
