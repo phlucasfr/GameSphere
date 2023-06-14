@@ -7,6 +7,27 @@
 
 import Firebase
 
+struct UserProfile {
+    var email: String
+    var fullName: String
+    var userName: String
+    var profileImageUrl: URL?
+    var uid: String
+    
+    init(uid: String, dictionary: [String: AnyObject]) {
+        self.uid = uid
+        
+        self.email = dictionary["email"] as? String ?? ""
+        self.fullName = dictionary["fullName"] as? String ?? ""
+        self.userName = dictionary["userName"] as? String ?? ""
+        
+        if let profileImageString = dictionary["profileImageUrl"] as? String {
+            guard let url = URL(string: profileImageString) else { return }
+            self.profileImageUrl = url
+        }
+    }
+}
+
 class UserService {
     static let shared = UserService()
     
