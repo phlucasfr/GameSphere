@@ -37,6 +37,7 @@
 		E095B52A2A22911100659C89 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = E095B5292A22911100659C89 /* .gitignore */; };
 		E09EAC7D2A35305A00332716 /* ConversationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09EAC7C2A35305A00332716 /* ConversationController.swift */; };
 		E0A341B72A22A1A600A28F8A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A341B62A22A1A600A28F8A /* User.swift */; };
+		E0CA40CB2A3A50E50098804D /* UploadPostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0CA40CA2A3A50E50098804D /* UploadPostController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		E095B5292A22911100659C89 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		E09EAC7C2A35305A00332716 /* ConversationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationController.swift; sourceTree = "<group>"; };
 		E0A341B62A22A1A600A28F8A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E0CA40CA2A3A50E50098804D /* UploadPostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPostController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +207,7 @@
 				E0904EDF2A3387470072FCAD /* ExploreController.swift */,
 				E0904EE12A338B4E0072FCAD /* NotificationController.swift */,
 				E09EAC7C2A35305A00332716 /* ConversationController.swift */,
+				E0CA40CA2A3A50E50098804D /* UploadPostController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -440,6 +443,7 @@
 				E051E48B2A1D51110070D725 /* Utilities.swift in Sources */,
 				E05516452A361F9E00F3CB72 /* LoadingIndicator.swift in Sources */,
 				E03984FE2A1E61AB00B66470 /* RegistrationController.swift in Sources */,
+				E0CA40CB2A3A50E50098804D /* UploadPostController.swift in Sources */,
 				E09EAC7D2A35305A00332716 /* ConversationController.swift in Sources */,
 				E01C361B2A379DA700EC8FBA /* ForgotPasswordVM.swift in Sources */,
 				E054A1DA2A2FD8C800955D7C /* Constants.swift in Sources */,
