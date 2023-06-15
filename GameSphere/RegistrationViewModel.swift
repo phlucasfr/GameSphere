@@ -9,7 +9,7 @@ import UIKit
 import Firebase
 import FirebaseStorage
 
-class RegistrationVM: UserRegistration {
+class RegistrationViewModel: UserRegistration {
     
     var emailTextField = Utilities().inputTextField(placeHolderText: "Email")
     var passwordTextField = Utilities().inputTextField(placeHolderText: "Password", isSecureField: true)

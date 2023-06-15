@@ -10,7 +10,7 @@ import UIKit
 class ForgotPasswordController: UIViewController {
     
     //MARK - Properties
-    private let forgotPasswordVM = ForgotPasswordVM()
+    private let forgotPasswordVM = ForgotPasswordViewModel()
     private let utilities = Utilities()
     private var handlPopupMsg: String?
     

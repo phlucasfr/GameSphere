@@ -17,7 +17,7 @@ class RegistrationController: UIViewController {
         return picker
     }()
     
-    private let user = RegistrationVM()
+    private let user = RegistrationViewModel()
     private let utilities = Utilities()
     private var profileImage: UIImage?
     private var handlPopupMsg: String?

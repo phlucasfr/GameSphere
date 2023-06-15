@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		6F193EC82B7E65A8B20697F0 /* Pods_GameSphere.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA3867EABFBB22463F2DCDD /* Pods_GameSphere.framework */; };
-		E00C4B772A23C53F004EA2F2 /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00C4B762A23C53F004EA2F2 /* LoginVM.swift */; };
+		E00C4B772A23C53F004EA2F2 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00C4B762A23C53F004EA2F2 /* LoginViewModel.swift */; };
 		E0147C192A37C6B700DD094E /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0147C182A37C6B700DD094E /* UserService.swift */; };
 		E01C36192A379D7700EC8FBA /* ForgotPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01C36182A379D7700EC8FBA /* ForgotPasswordController.swift */; };
-		E01C361B2A379DA700EC8FBA /* ForgotPasswordVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01C361A2A379DA700EC8FBA /* ForgotPasswordVM.swift */; };
+		E01C361B2A379DA700EC8FBA /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01C361A2A379DA700EC8FBA /* ForgotPasswordViewModel.swift */; };
 		E02A3C9F2A1D3354004D536F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02A3C9E2A1D3354004D536F /* AppDelegate.swift */; };
 		E02A3CA12A1D3354004D536F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02A3CA02A1D3354004D536F /* SceneDelegate.swift */; };
 		E02A3CA62A1D3354004D536F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E02A3CA42A1D3354004D536F /* Main.storyboard */; };
@@ -28,7 +28,7 @@
 		E0524E992A390F9F00DD2DA0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E0524E982A390F9F00DD2DA0 /* GoogleService-Info.plist */; };
 		E054A1DA2A2FD8C800955D7C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E054A1D92A2FD8C800955D7C /* Constants.swift */; };
 		E05516452A361F9E00F3CB72 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05516442A361F9E00F3CB72 /* LoadingIndicator.swift */; };
-		E07DFB812A22FCED00C68881 /* RegistrationVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07DFB802A22FCED00C68881 /* RegistrationVM.swift */; };
+		E07DFB812A22FCED00C68881 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07DFB802A22FCED00C68881 /* RegistrationViewModel.swift */; };
 		E07DFB842A22FFA200C68881 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E07DFB832A22FFA200C68881 /* SnapKit */; };
 		E0904EDC2A3384200072FCAD /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0904EDB2A3384200072FCAD /* MainTabController.swift */; };
 		E0904EDE2A3385150072FCAD /* FeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0904EDD2A3385150072FCAD /* FeedController.swift */; };
@@ -61,10 +61,10 @@
 		4151C4273880C009D76000AC /* Pods-GameSphere.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameSphere.release.xcconfig"; path = "Target Support Files/Pods-GameSphere/Pods-GameSphere.release.xcconfig"; sourceTree = "<group>"; };
 		6FA3867EABFBB22463F2DCDD /* Pods_GameSphere.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GameSphere.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0C0B4276F579F3E296ABF0C /* Pods-GameSphere.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameSphere.debug.xcconfig"; path = "Target Support Files/Pods-GameSphere/Pods-GameSphere.debug.xcconfig"; sourceTree = "<group>"; };
-		E00C4B762A23C53F004EA2F2 /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
+		E00C4B762A23C53F004EA2F2 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		E0147C182A37C6B700DD094E /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		E01C36182A379D7700EC8FBA /* ForgotPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordController.swift; sourceTree = "<group>"; };
-		E01C361A2A379DA700EC8FBA /* ForgotPasswordVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVM.swift; sourceTree = "<group>"; };
+		E01C361A2A379DA700EC8FBA /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
 		E02A3C9B2A1D3354004D536F /* GameSphere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameSphere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E02A3C9E2A1D3354004D536F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E02A3CA02A1D3354004D536F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,7 +85,7 @@
 		E0524E982A390F9F00DD2DA0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E054A1D92A2FD8C800955D7C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E05516442A361F9E00F3CB72 /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
-		E07DFB802A22FCED00C68881 /* RegistrationVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationVM.swift; sourceTree = "<group>"; };
+		E07DFB802A22FCED00C68881 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		E0904EDB2A3384200072FCAD /* MainTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
 		E0904EDD2A3385150072FCAD /* FeedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedController.swift; sourceTree = "<group>"; };
 		E0904EDF2A3387470072FCAD /* ExploreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreController.swift; sourceTree = "<group>"; };
@@ -224,10 +224,10 @@
 		E02A3CD02A1D37E5004D536F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				E07DFB802A22FCED00C68881 /* RegistrationVM.swift */,
-				E00C4B762A23C53F004EA2F2 /* LoginVM.swift */,
+				E07DFB802A22FCED00C68881 /* RegistrationViewModel.swift */,
+				E00C4B762A23C53F004EA2F2 /* LoginViewModel.swift */,
 				E04E97E52A34B661009DC8CF /* MainTabViewModel.swift */,
-				E01C361A2A379DA700EC8FBA /* ForgotPasswordVM.swift */,
+				E01C361A2A379DA700EC8FBA /* ForgotPasswordViewModel.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -445,9 +445,9 @@
 				E03984FE2A1E61AB00B66470 /* RegistrationController.swift in Sources */,
 				E0CA40CB2A3A50E50098804D /* UploadPostController.swift in Sources */,
 				E09EAC7D2A35305A00332716 /* ConversationController.swift in Sources */,
-				E01C361B2A379DA700EC8FBA /* ForgotPasswordVM.swift in Sources */,
+				E01C361B2A379DA700EC8FBA /* ForgotPasswordViewModel.swift in Sources */,
 				E054A1DA2A2FD8C800955D7C /* Constants.swift in Sources */,
-				E07DFB812A22FCED00C68881 /* RegistrationVM.swift in Sources */,
+				E07DFB812A22FCED00C68881 /* RegistrationViewModel.swift in Sources */,
 				E04E97E62A34B661009DC8CF /* MainTabViewModel.swift in Sources */,
 				E0904EDE2A3385150072FCAD /* FeedController.swift in Sources */,
 				E051E4892A1D4A030070D725 /* Extensions.swift in Sources */,
@@ -456,7 +456,7 @@
 				E0147C192A37C6B700DD094E /* UserService.swift in Sources */,
 				E0904EDC2A3384200072FCAD /* MainTabController.swift in Sources */,
 				E0A341B72A22A1A600A28F8A /* User.swift in Sources */,
-				E00C4B772A23C53F004EA2F2 /* LoginVM.swift in Sources */,
+				E00C4B772A23C53F004EA2F2 /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

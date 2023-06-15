@@ -11,7 +11,7 @@ import SnapKit
 class LoginController: UIViewController {
     
     //MARK - Properties
-    private let loginVM = LoginVM()
+    private let loginVM = LoginViewModel()
     private let utilities = Utilities()
     
     private let logoImageView: UIImageView = {
