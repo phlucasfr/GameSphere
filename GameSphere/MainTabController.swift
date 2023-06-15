@@ -10,8 +10,8 @@ import Firebase
 
 class MainTabController: UITabBarController {
     
-    // MARK - Properties    
-    private let mainTabviewModel = MainTabVM()
+    // MARK: - Properties
+    private var mainTabViewModel: MainTabViewModelProtocol!
     private let utilities = Utilities()
     
     private var user: UserProfile? {
@@ -33,15 +33,46 @@ class MainTabController: UITabBarController {
         return button
     }()
     
-    // MARK - API
-    func fetchUser(){
-        UserService.shared.fetchUser { user in
-            self.user = user
+    // MARK: - Lifecycle
+    init(viewModel: MainTabViewModelProtocol) {
+        self.mainTabViewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .white
+        
+        authenticateUserAndConfigureUI()
+    }
+    
+    // MARK: - UI Configuration
+    private func configureUI() {
+        view.addSubview(actionButton)
+        actionButton.snp.makeConstraints { make in
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-64)
+            make.right.equalTo(view.snp.right).offset(-16)
+            make.width.height.equalTo(56)
+        }
+        actionButton.layer.cornerRadius = 56 / 2
+    }
+    
+    private func showLoginScreen() {
+        DispatchQueue.main.async { [weak self] in
+            let loginController = LoginController()
+            let nav = UINavigationController(rootViewController: loginController)
+            nav.modalPresentationStyle = .fullScreen
+            self?.present(nav, animated: true, completion: nil)
         }
     }
     
-    func authenticateUserAndConfigureUI(){
-        mainTabviewModel.authenticateUser { [weak self] isAuthenticated in
+    // MARK: - Authentication
+    func authenticateUserAndConfigureUI() {
+        mainTabViewModel.authenticateUser { [weak self] isAuthenticated in
             if isAuthenticated {
                 self?.configureViewControllers()
                 self?.configureUI()
@@ -52,53 +83,25 @@ class MainTabController: UITabBarController {
         }
     }
     
-    func logUserOut(){
-        do {
-            try Auth.auth().signOut()
-            print("DEBUG: User logged out.")
-        } catch let error {
-            print("DEBUG: \(error.localizedDescription)")
+    private func fetchUser() {
+        mainTabViewModel.fetchUser { [weak self] user in
+            self?.user = user
         }
     }
     
-    // MARK - Selector
-    @objc func actionButtonTapped() {
+    private func logUserOut() {
+        mainTabViewModel.logUserOut()
+    }
+    
+    // MARK: - Selector
+    @objc private func actionButtonTapped() {
         let nav = UINavigationController(rootViewController: UploadPostController())
         nav.modalPresentationStyle = .fullScreen
         present(nav, animated: true, completion: nil)
-       
     }
     
-    // MARK - Lifecycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .white
-        
-        //logUserOut()
-        authenticateUserAndConfigureUI()
-    }
-    
-    // MARK - Helpers
-    func configureUI() {
-        view.addSubview(actionButton)
-        actionButton.snp.makeConstraints { make in
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-64)
-            make.right.equalTo(view.snp.right).offset(-16)
-            make.width.height.equalTo(56)
-        }
-        actionButton.layer.cornerRadius = 56 / 2
-    }
-    
-    func showLoginScreen() {
-        DispatchQueue.main.async { [weak self] in
-            let loginController = LoginController()
-            let nav = UINavigationController(rootViewController: loginController)
-            nav.modalPresentationStyle = .fullScreen
-            self?.present(nav, animated: true, completion: nil)
-        }
-    }
-    
-    func configureViewControllers(){
+    // MARK: - Helpers    
+    private func configureViewControllers() {
         let appearance = UITabBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = .gameSphereWhite
@@ -122,16 +125,15 @@ class MainTabController: UITabBarController {
         viewControllers = [nav1, nav2, nav3, nav4]
     }
     
-    func templateNavigationController(image: UIImage?, rootViewController: UIViewController) -> UINavigationController {
+    private func templateNavigationController(image: UIImage?, rootViewController: UIViewController) -> UINavigationController {
         
         let nav = UINavigationController(rootViewController: rootViewController)
         nav.tabBarItem.image = image
         
-        let appearance = utilities.setWhiteNavBar()        
+        let appearance = utilities.setWhiteNavBar()
         nav.navigationBar.standardAppearance = appearance
         nav.navigationBar.scrollEdgeAppearance = nav.navigationBar.standardAppearance
         
         return nav
     }
-    
 }
