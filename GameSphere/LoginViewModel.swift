@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 
-class LoginVM: UserLogin {
+class LoginViewModel: UserLogin {
     
     let emailTextField = Utilities().inputTextField(placeHolderText: "Email")
     let passwordTextField = Utilities().inputTextField(placeHolderText: "Password", isSecureField: true)
