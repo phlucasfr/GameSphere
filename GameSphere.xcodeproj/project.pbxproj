@@ -22,7 +22,7 @@
 		E02A3CC22A1D3355004D536F /* GameSphereUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02A3CC12A1D3355004D536F /* GameSphereUITestsLaunchTests.swift */; };
 		E02A3CD42A1D3AE8004D536F /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02A3CD32A1D3AE8004D536F /* LoginController.swift */; };
 		E03984FE2A1E61AB00B66470 /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03984FD2A1E61AB00B66470 /* RegistrationController.swift */; };
-		E04E97E62A34B661009DC8CF /* MainTabVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04E97E52A34B661009DC8CF /* MainTabVM.swift */; };
+		E04E97E62A34B661009DC8CF /* MainTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04E97E52A34B661009DC8CF /* MainTabViewModel.swift */; };
 		E051E4892A1D4A030070D725 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E051E4882A1D4A030070D725 /* Extensions.swift */; };
 		E051E48B2A1D51110070D725 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E051E48A2A1D51110070D725 /* Utilities.swift */; };
 		E0524E992A390F9F00DD2DA0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E0524E982A390F9F00DD2DA0 /* GoogleService-Info.plist */; };
@@ -79,7 +79,7 @@
 		E02A3CC12A1D3355004D536F /* GameSphereUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSphereUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E02A3CD32A1D3AE8004D536F /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		E03984FD2A1E61AB00B66470 /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
-		E04E97E52A34B661009DC8CF /* MainTabVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabVM.swift; sourceTree = "<group>"; };
+		E04E97E52A34B661009DC8CF /* MainTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewModel.swift; sourceTree = "<group>"; };
 		E051E4882A1D4A030070D725 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E051E48A2A1D51110070D725 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		E0524E982A390F9F00DD2DA0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -226,7 +226,7 @@
 			children = (
 				E07DFB802A22FCED00C68881 /* RegistrationVM.swift */,
 				E00C4B762A23C53F004EA2F2 /* LoginVM.swift */,
-				E04E97E52A34B661009DC8CF /* MainTabVM.swift */,
+				E04E97E52A34B661009DC8CF /* MainTabViewModel.swift */,
 				E01C361A2A379DA700EC8FBA /* ForgotPasswordVM.swift */,
 			);
 			name = ViewModel;
@@ -448,7 +448,7 @@
 				E01C361B2A379DA700EC8FBA /* ForgotPasswordVM.swift in Sources */,
 				E054A1DA2A2FD8C800955D7C /* Constants.swift in Sources */,
 				E07DFB812A22FCED00C68881 /* RegistrationVM.swift in Sources */,
-				E04E97E62A34B661009DC8CF /* MainTabVM.swift in Sources */,
+				E04E97E62A34B661009DC8CF /* MainTabViewModel.swift in Sources */,
 				E0904EDE2A3385150072FCAD /* FeedController.swift in Sources */,
 				E051E4892A1D4A030070D725 /* Extensions.swift in Sources */,
 				E01C36192A379D7700EC8FBA /* ForgotPasswordController.swift in Sources */,
