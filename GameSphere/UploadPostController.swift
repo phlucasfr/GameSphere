@@ -56,7 +56,6 @@ class UploadPostController: UIViewController {
         super.viewDidLoad()
         
         configureUI()
-        print("DEBUG: User is \(user)")
     }
     
     //MARK - Selectors
@@ -65,7 +64,17 @@ class UploadPostController: UIViewController {
     }
     
     @objc func handleUploadPost() {
-        print("Upload post here")
+        
+        //Example of custom alert
+        CustomAlert.handleCustomAlert(
+            from: self,
+            title: "Title",
+            placeholder: "Enter text",
+            keyboardType: .default,
+            autocorrectionType: .default
+        ) { value in
+            print("Value: \(value)")
+        }
     }
     
     //MARK - API
