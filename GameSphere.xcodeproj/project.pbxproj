@@ -22,6 +22,7 @@
 		E02A3CC22A1D3355004D536F /* GameSphereUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02A3CC12A1D3355004D536F /* GameSphereUITestsLaunchTests.swift */; };
 		E02A3CD42A1D3AE8004D536F /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02A3CD32A1D3AE8004D536F /* LoginController.swift */; };
 		E03984FE2A1E61AB00B66470 /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03984FD2A1E61AB00B66470 /* RegistrationController.swift */; };
+		E04396802A3CB31500B5C50B /* CaptionTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E043967F2A3CB31500B5C50B /* CaptionTextView.swift */; };
 		E04E97E62A34B661009DC8CF /* MainTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04E97E52A34B661009DC8CF /* MainTabViewModel.swift */; };
 		E051E4892A1D4A030070D725 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E051E4882A1D4A030070D725 /* Extensions.swift */; };
 		E051E48B2A1D51110070D725 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E051E48A2A1D51110070D725 /* Utilities.swift */; };
@@ -79,6 +80,7 @@
 		E02A3CC12A1D3355004D536F /* GameSphereUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSphereUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E02A3CD32A1D3AE8004D536F /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		E03984FD2A1E61AB00B66470 /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
+		E043967F2A3CB31500B5C50B /* CaptionTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionTextView.swift; sourceTree = "<group>"; };
 		E04E97E52A34B661009DC8CF /* MainTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewModel.swift; sourceTree = "<group>"; };
 		E051E4882A1D4A030070D725 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E051E48A2A1D51110070D725 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
@@ -169,8 +171,9 @@
 				E02A3CD02A1D37E5004D536F /* ViewModel */,
 				E02A3CCF2A1D37DB004D536F /* Model */,
 				E02A3CCE2A1D37D3004D536F /* View */,
-				E02A3C9E2A1D3354004D536F /* AppDelegate.swift */,
+				E043967C2A3CB29700B5C50B /* Controller */,
 				E02A3CA02A1D3354004D536F /* SceneDelegate.swift */,
+				E02A3C9E2A1D3354004D536F /* AppDelegate.swift */,
 				E02A3CA42A1D3354004D536F /* Main.storyboard */,
 				E02A3CA72A1D3355004D536F /* Assets.xcassets */,
 				E02A3CA92A1D3355004D536F /* LaunchScreen.storyboard */,
@@ -201,13 +204,7 @@
 		E02A3CCE2A1D37D3004D536F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E02A3CD22A1D3A20004D536F /* Authenticator */,
-				E0904EDB2A3384200072FCAD /* MainTabController.swift */,
-				E0904EDD2A3385150072FCAD /* FeedController.swift */,
-				E0904EDF2A3387470072FCAD /* ExploreController.swift */,
-				E0904EE12A338B4E0072FCAD /* NotificationController.swift */,
-				E09EAC7C2A35305A00332716 /* ConversationController.swift */,
-				E0CA40CA2A3A50E50098804D /* UploadPostController.swift */,
+				E043967F2A3CB31500B5C50B /* CaptionTextView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -240,6 +237,20 @@
 				E01C36182A379D7700EC8FBA /* ForgotPasswordController.swift */,
 			);
 			name = Authenticator;
+			sourceTree = "<group>";
+		};
+		E043967C2A3CB29700B5C50B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E0904EDB2A3384200072FCAD /* MainTabController.swift */,
+				E0904EDD2A3385150072FCAD /* FeedController.swift */,
+				E0904EE12A338B4E0072FCAD /* NotificationController.swift */,
+				E0904EDF2A3387470072FCAD /* ExploreController.swift */,
+				E09EAC7C2A35305A00332716 /* ConversationController.swift */,
+				E0CA40CA2A3A50E50098804D /* UploadPostController.swift */,
+				E02A3CD22A1D3A20004D536F /* Authenticator */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		E051E4872A1D49F00070D725 /* Utils */ = {
@@ -456,6 +467,7 @@
 				E0147C192A37C6B700DD094E /* UserService.swift in Sources */,
 				E0904EDC2A3384200072FCAD /* MainTabController.swift in Sources */,
 				E0A341B72A22A1A600A28F8A /* User.swift in Sources */,
+				E04396802A3CB31500B5C50B /* CaptionTextView.swift in Sources */,
 				E00C4B772A23C53F004EA2F2 /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
