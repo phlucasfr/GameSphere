@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class Utilities {
+struct Utilities {
         
     func inputContainerView(withImage image: UIImage, textField: UITextField) -> UIView {
         let view = UIView()
