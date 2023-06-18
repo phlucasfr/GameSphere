@@ -7,7 +7,7 @@
 
 import Firebase
 
-class ForgotPasswordViewModel: ForgotPassword {
+class ForgotPasswordViewModel {
     let emailTextField = Utilities().inputTextField(placeHolderText: "Email")
     var email = ""
     
