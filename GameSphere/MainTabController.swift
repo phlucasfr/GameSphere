@@ -73,6 +73,8 @@ class MainTabController: UITabBarController {
     // MARK: - Authentication
     func authenticateUserAndConfigureUI() {
         mainTabViewModel.authenticateUser { [weak self] isAuthenticated in
+            
+            //self?.logUserOut()
             if isAuthenticated {
                 self?.configureViewControllers()
                 self?.configureUI()

@@ -110,7 +110,7 @@ class RegistrationController: UIViewController {
             LoadingIndicator.hideLoadingIndicator()
             return
         }
-        user.profileImageReg = profileImage!
+        user.profileImage = profileImage!
         
         do {
             try user.registerUser { (result, error) in

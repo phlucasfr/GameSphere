@@ -9,25 +9,13 @@ import UIKit
 import Firebase
 import FirebaseStorage
 
-class RegistrationViewModel: UserRegistration {
+class RegistrationViewModel: User {
     
     var emailTextField = Utilities().inputTextField(placeHolderText: "Email")
     var passwordTextField = Utilities().inputTextField(placeHolderText: "Password", isSecureField: true)
     var fullnameTextField = Utilities().inputTextField(placeHolderText: "Full Name")
     var usernameTextField = Utilities().inputTextField(placeHolderText: "Username")
-    var profileImageReg = UIImage()
-    
-    internal lazy var userReg = User(
-        userId: "",
-        email: "",
-        password: "",
-        fullName: "",
-        userName: "",
-        profileImageUrl: ""
-    )
-    
-    var result: AuthDataResult?
-      
+          
     private func verifyAndSetProps() throws {
         guard let email = emailTextField.text, !email.isEmpty else {
             throw RegistrationError.missingEmail
@@ -42,10 +30,10 @@ class RegistrationViewModel: UserRegistration {
             throw RegistrationError.missingUsername
         }
 
-        userReg.email = email
-        userReg.password = password
-        userReg.fullName = fullName
-        userReg.userName = userName
+        self.email = email
+        self.password = password
+        self.fullName = fullName
+        self.userName = userName
     }
     
     func checkUsernameAvailability(username: String, completion: @escaping (Bool, Error?) -> Void) {
@@ -53,14 +41,11 @@ class RegistrationViewModel: UserRegistration {
         
         usernameRef.observeSingleEvent(of: .value) { snapshot in
             if snapshot.exists() {
-                // O nome de usuário já está em uso
                 completion(false, nil)
             } else {
-                // O nome de usuário está disponível
                 completion(true, nil)
             }
         } withCancel: { error in
-            // Ocorreu um erro ao executar a consulta
             completion(false, error)
         }
     }
@@ -69,19 +54,21 @@ class RegistrationViewModel: UserRegistration {
         do {
             try verifyAndSetProps()
             
-            checkUsernameAvailability(username: userReg.userName) { isAvailable, error in
+            checkUsernameAvailability(username: self.userName!) { isAvailable, error in
                 if let error = error {
                     completion(nil, error)
                 } else if !isAvailable {
                     completion(nil, RegistrationError.usernameAlreadyExists)
                 } else {
-                    Auth.auth().createUser(withEmail: self.userReg.email, password: self.userReg.password) { (result, error) in
+                    Auth.auth().createUser(withEmail: self.email!, password: self.password!) { (result, error) in
                         if let error = error {
                             completion(nil, error)
                             return
                         }
+                                             
+                        guard let userId = result?.user.uid else { return }
+                        self.userId = userId
                         
-                        self.result = result
                         self.profileImageToUrl()
                                                
                         completion(result, nil)
@@ -97,7 +84,7 @@ class RegistrationViewModel: UserRegistration {
     }
         
     func profileImageToUrl() {
-        guard let imageData = self.profileImageReg.jpegData(compressionQuality: 0.3) else {return}
+        guard let imageData = self.profileImage?.jpegData(compressionQuality: 0.3) else {return}
         let fileName = NSUUID().uuidString
         
         let storageRef = STORAGE_PROFILE_IMAGES.child(fileName)
@@ -105,25 +92,22 @@ class RegistrationViewModel: UserRegistration {
             storageRef.downloadURL { (url, error) in
                 guard let profileImageURL = url?.absoluteString else { return }
                 
-                self.userReg.profileImageUrl = profileImageURL
+                self.profileImageUrl = profileImageURL
                 self.insertUser()
             }
         }
     }
     
-    func insertUser() {
-        guard let userId = self.result?.user.uid else { return }
-        userReg.userId = userId
-        
+    func insertUser() {                
         // updateChildValues needs to be a Dictionary
         let userDictionary: [String: Any] = [
-            "email": userReg.email,
-            "fullName": userReg.fullName,
-            "userName": userReg.userName,
-            "profileImageUrl": userReg.profileImageUrl
+            "email": self.email!,
+            "fullName": self.fullName!,
+            "userName": self.userName!,
+            "profileImageUrl": self.profileImageUrl!
         ]
         
-        REF_USERS.child(userReg.userId).updateChildValues(userDictionary) { erro, ref in
+        REF_USERS.child(self.userId!).updateChildValues(userDictionary) { erro, ref in
             print("Success update user")
             self.sendVerUser()
         }
